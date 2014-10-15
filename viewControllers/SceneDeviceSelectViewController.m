@@ -14,6 +14,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    UIView* _sView = [UIView new];
+    _sView.backgroundColor = [UIColor clearColor];
+    [_tableView setTableFooterView:_sView];
 }
 
 - (void)didReceiveMemoryWarning {
