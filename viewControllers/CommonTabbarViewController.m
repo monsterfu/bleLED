@@ -24,30 +24,14 @@
     }
     return self;
 }
-- (void)viewWillAppear:(BOOL)animated
-{
-    NSLog(@"viewWillAppear");
-    CGRect oldframe = self.tabBar.frame;
-    oldframe.origin.y = DEVICE_HEIGHT - TABBAR_HEIGHT;
-    oldframe.size.height = TABBAR_HEIGHT;
-    
-    [self.tabBar setFrame:oldframe];
-}
-- (void)viewDidAppear:(BOOL)animated
-{
-    CGRect oldframe = self.tabBar.frame;
-    oldframe.origin.y = DEVICE_HEIGHT - TABBAR_HEIGHT;
-    oldframe.size.height = TABBAR_HEIGHT;
-    
-    [self.tabBar setFrame:oldframe];
-}
+
 -(void)viewWillLayoutSubviews
 {
-    CGRect oldframe = self.tabBar.frame;
-    oldframe.origin.y = DEVICE_HEIGHT - TABBAR_HEIGHT*2;
-    oldframe.size.height = TABBAR_HEIGHT*2;
-    
-    [self.tabBar setFrame:oldframe];
+//    CGRect oldframe = self.tabBar.frame;
+//    oldframe.origin.y = DEVICE_HEIGHT - TABBAR_HEIGHT*2;
+//    oldframe.size.height = TABBAR_HEIGHT*2;
+//    
+//    [self.tabBar setFrame:oldframe];
 }
 - (void)viewDidLoad
 {
