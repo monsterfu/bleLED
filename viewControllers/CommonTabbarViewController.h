@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "GlobalHeader.h"
+#import "SceneSettingViewController.h"
 
 @interface CommonTabbarViewController : UITabBarController
-
+{
+    SceneSettingViewController* _sceneSettingViewController;
+}
 @end

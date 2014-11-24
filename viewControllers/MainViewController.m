@@ -35,7 +35,10 @@
 - (void)myTask {
     // Do something usefull in here instead of sleeping ...
     [[ConnectionManager sharedInstance]startScanForDevice];
-    sleep(3);
+    [[ConnectionManager sharedInstance] setDelegate:self];
+    _deviceArray = [ConnectionManager sharedInstance].addedDeviceArray;
+    [_tableView reloadData];
+    sleep(1);
     [_emptyViewController.view setHidden:YES];
 }
 
@@ -43,8 +46,8 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     if ([segue.identifier isEqualToString:@"deviceSettingIdentifier"]) {
-        NSIndexPath *indexPath = [_tableView indexPathForSelectedRow];
         _deviceSettingViewController = (DeviceSettingViewController*)segue.destinationViewController;
+        _deviceSettingViewController.device = (oneLedDeviceObject*)sender;
     }
 }
 #pragma mark -
@@ -77,23 +80,41 @@
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    return [_deviceArray count];
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     _cell = [tableView dequeueReusableCellWithIdentifier:@"deviceListIdentifier" forIndexPath:indexPath];
-    _cell.nameLabel.text = [NSString stringWithFormat:@"device %ld",(long)indexPath.row];
+    _device = [_deviceArray objectAtIndex:indexPath.row];
+    _cell.nameLabel.text = _device.name;
     _cell.tag = indexPath.row;
     _cell.delegate = self;
     return _cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self performSegueWithIdentifier:@"deviceSettingIdentifier" sender:nil];
+    [self performSegueWithIdentifier:@"deviceSettingIdentifier" sender:[_deviceArray objectAtIndex:indexPath.row]];
 }
 #pragma mark - 
 #pragma mark deviceListCellDelegate
 -(void)deviceListCellOpen:(BOOL)open tag:(NSUInteger)tag
+{
+    _device = [_deviceArray objectAtIndex:tag];
+    [_device open:open];
+}
+
+#pragma mark -
+#pragma mark ConnectionManagerDelegate
+- (void) didDiscoverDevice:(oneLedDeviceObject*)device
+{
+    _deviceArray = [ConnectionManager sharedInstance].addedDeviceArray;
+    [_tableView reloadData];
+}
+- (void) didDisconnectWithDevice:(oneLedDeviceObject*)device
+{
+    
+}
+- (void) didConnectWithDevice:(oneLedDeviceObject*)device
 {
     
 }

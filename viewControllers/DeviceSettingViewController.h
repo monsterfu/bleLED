@@ -8,11 +8,23 @@
 
 #import <UIKit/UIKit.h>
 #import "PanelView.h"
+#import "oneLedDeviceObject.h"
 
-@interface DeviceSettingViewController : UIViewController
 
-
+@interface DeviceSettingViewController : UIViewController<PanelViewDelegate>
+{
+//    RSColorPickerView *colorPicker;
+//    RSBrightnessSlider *brightnessSlider;
+//    UIView *colorPatch;
+    
+}
+@property (nonatomic) HSVType currentHSV;
 @property (weak, nonatomic) IBOutlet PanelView *panelSetView;
+@property (weak, nonatomic) IBOutlet UIImageView *panelImageView;
+@property (nonatomic, retain)oneLedDeviceObject* device;
+
+- (IBAction)panelCenterButtonTouch:(UIButton *)sender;
+
 
 //色温
 @property (weak, nonatomic) IBOutlet UISlider *colorTemperatureSlider;

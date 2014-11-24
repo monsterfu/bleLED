@@ -8,12 +8,18 @@
 
 #import <UIKit/UIKit.h>
 #import "PanelView.h"
+#import "SceneArrayDeviceObject.h"
+#import "SceneDeviceSelectViewController.h"
 
-
-@interface SceneSettingViewController : UIViewController<UITextFieldDelegate>
+@interface SceneSettingViewController : UIViewController<UITextFieldDelegate,PanelViewDelegate>
 {
     UITapGestureRecognizer* _tapGestureRecognizer;
+    SceneDeviceSelectViewController* _sceneDeviceSelectViewController;
 }
+@property (nonatomic) HSVType currentHSV;
+
+@property(nonatomic, retain)SceneArrayDeviceObject* sceneArrayDeviceObj;
+@property (nonatomic, retain)oneLedDeviceObject* device;
 
 @property (weak, nonatomic) IBOutlet UITextField *sceneNameTextField;
 

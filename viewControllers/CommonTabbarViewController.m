@@ -12,6 +12,8 @@
 
 @end
 
+#define  TABBAR_HEIGHT   (62)
+
 @implementation CommonTabbarViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -22,7 +24,31 @@
     }
     return self;
 }
-
+- (void)viewWillAppear:(BOOL)animated
+{
+    NSLog(@"viewWillAppear");
+    CGRect oldframe = self.tabBar.frame;
+    oldframe.origin.y = DEVICE_HEIGHT - TABBAR_HEIGHT;
+    oldframe.size.height = TABBAR_HEIGHT;
+    
+    [self.tabBar setFrame:oldframe];
+}
+- (void)viewDidAppear:(BOOL)animated
+{
+    CGRect oldframe = self.tabBar.frame;
+    oldframe.origin.y = DEVICE_HEIGHT - TABBAR_HEIGHT;
+    oldframe.size.height = TABBAR_HEIGHT;
+    
+    [self.tabBar setFrame:oldframe];
+}
+-(void)viewWillLayoutSubviews
+{
+    CGRect oldframe = self.tabBar.frame;
+    oldframe.origin.y = DEVICE_HEIGHT - TABBAR_HEIGHT*2;
+    oldframe.size.height = TABBAR_HEIGHT*2;
+    
+    [self.tabBar setFrame:oldframe];
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -38,7 +64,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -46,7 +72,11 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"sceneDetailIdentifier"]) {
+        _sceneSettingViewController = (SceneSettingViewController*)[segue destinationViewController];
+        _sceneSettingViewController.sceneArrayDeviceObj = (SceneArrayDeviceObject*)sender;
+    }
 }
-*/
+
 
 @end

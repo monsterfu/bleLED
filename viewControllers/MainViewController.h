@@ -11,14 +11,17 @@
 #import "deviceListCell.h"
 #import "DeviceSettingViewController.h"
 
-@interface MainViewController : UIViewController<MBProgressHUDDelegate,UITableViewDataSource,UITableViewDelegate,deviceListCellDelegate>
+@interface MainViewController : UIViewController<MBProgressHUDDelegate,UITableViewDataSource,UITableViewDelegate,deviceListCellDelegate,ConnectionManagerDelegate>
 {
     MBProgressHUD* _hud;
     EmptyOneViewController* _emptyViewController;
     deviceListCell* _cell;
     DeviceSettingViewController* _deviceSettingViewController;
+    
+    oneLedDeviceObject* _device;
 }
 
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property(weak, nonatomic) IBOutlet UITableView *tableView;
+@property(nonatomic, retain)NSMutableArray* deviceArray;
 
 @end

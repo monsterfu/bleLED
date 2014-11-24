@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "GlobalHeader.h"
 
 @interface AppDelegate ()
 
@@ -40,6 +41,8 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    [[NSNotificationCenter defaultCenter]postNotificationName:NSNotificationCenter_AppWillDetemin object:nil];
+    
 }
 
 @end

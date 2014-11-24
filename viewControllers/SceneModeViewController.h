@@ -8,9 +8,17 @@
 
 #import <UIKit/UIKit.h>
 #import "GlobalHeader.h"
+#import "sceneModeCell.h"
 
-@interface SceneModeViewController : UIViewController
+@interface SceneModeViewController : UIViewController<sceneModeCellDelegate>
 {
     EmptyModeViewController* _emptyModeViewController;
+    SceneArrayDeviceObject* _sceneArrayDeviceObject;
+    sceneModeCell* _cell;
 }
+
+- (IBAction)addButtonTouched:(UIBarButtonItem *)sender;
+
+@property(nonatomic, retain)NSMutableArray* sceneArry;
+
 @end

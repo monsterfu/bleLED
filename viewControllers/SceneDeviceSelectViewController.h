@@ -13,8 +13,13 @@
 @interface SceneDeviceSelectViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,deviceSelectedCellDelegate>
 {
     deviceSelectedCell* _cell;
+    UIBarButtonItem* _rightButtonItem;
+    oneLedDeviceObject* _device;
 }
-
+@property(nonatomic, retain)SceneArrayDeviceObject* sceneArrayDeviceObj;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+@property (nonatomic, retain)NSMutableArray* deviceArray;
+@property (nonatomic, retain)NSMutableArray* selectedArray;
 
 @end
