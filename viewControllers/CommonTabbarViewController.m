@@ -12,7 +12,7 @@
 
 @end
 
-#define  TABBAR_HEIGHT   (62)
+#define  TABBAR_HEIGHT   (75)
 
 @implementation CommonTabbarViewController
 
@@ -25,13 +25,13 @@
     return self;
 }
 
--(void)viewWillLayoutSubviews
+-(void)viewDidLayoutSubviews
 {
-//    CGRect oldframe = self.tabBar.frame;
-//    oldframe.origin.y = DEVICE_HEIGHT - TABBAR_HEIGHT*2;
-//    oldframe.size.height = TABBAR_HEIGHT*2;
-//    
-//    [self.tabBar setFrame:oldframe];
+    CGRect oldframe = self.tabBar.frame;
+    oldframe.origin.y = DEVICE_HEIGHT - TABBAR_HEIGHT;
+    oldframe.size.height = TABBAR_HEIGHT;
+    
+    [self.tabBar setFrame:oldframe];
 }
 - (void)viewDidLoad
 {

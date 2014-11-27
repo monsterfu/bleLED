@@ -15,10 +15,12 @@
     EmptyModeViewController* _emptyModeViewController;
     SceneArrayDeviceObject* _sceneArrayDeviceObject;
     sceneModeCell* _cell;
+    oneLedDeviceObject* _device;
 }
 
 - (IBAction)addButtonTouched:(UIBarButtonItem *)sender;
 
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property(nonatomic, retain)NSMutableArray* sceneArry;
 
 @end

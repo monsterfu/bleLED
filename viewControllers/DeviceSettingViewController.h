@@ -9,17 +9,20 @@
 #import <UIKit/UIKit.h>
 #import "PanelView.h"
 #import "oneLedDeviceObject.h"
-
+#import "centercolorView.h"
 
 @interface DeviceSettingViewController : UIViewController<PanelViewDelegate>
 {
 //    RSColorPickerView *colorPicker;
 //    RSBrightnessSlider *brightnessSlider;
 //    UIView *colorPatch;
-    
+    UITapGestureRecognizer* _tapGestureRecognizer;
+    BOOL _open;
 }
 @property (nonatomic) HSVType currentHSV;
 @property (weak, nonatomic) IBOutlet PanelView *panelSetView;
+@property (weak, nonatomic) IBOutlet centerColorView *centerView;
+
 @property (weak, nonatomic) IBOutlet UIImageView *panelImageView;
 @property (nonatomic, retain)oneLedDeviceObject* device;
 

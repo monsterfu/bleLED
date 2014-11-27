@@ -23,7 +23,12 @@
     return sceneArrayDeviceObject;
 }
 
-
+-(void)setDefaultValue
+{
+    for (_device in self.deviceArray) {
+        [_device setDefaultSceneValue:self.colorSet];
+    }
+}
 
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {

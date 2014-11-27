@@ -17,17 +17,17 @@
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect {
     // Drawing code
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    CGFloat r, g, b, alpha;
-    if ([_centerColor getRed:&r green:&g blue:&b alpha:&alpha]){
-         CGContextSetRGBFillColor (context,  r, g, b, alpha);
-    }else{
-        if ([[UIColor clearColor] getRed:&r green:&g blue:&b alpha:&alpha]){
-            CGContextSetRGBFillColor (context,  r, g, b, alpha);
-        }
-    }
-    CGContextAddArc(context, self.frame.size.width/2+1, self.frame.size.height/2+0.5, RADIS/2, 0, 2*M_PI, 0); //添加圆
-    CGContextDrawPath(context, kCGPathFill);
+//    CGContextRef context = UIGraphicsGetCurrentContext();
+//    CGFloat r, g, b, alpha;
+//    if ([_centerColor getRed:&r green:&g blue:&b alpha:&alpha]){
+//         CGContextSetRGBFillColor (context,  r, g, b, alpha);
+//    }else{
+//        if ([[UIColor clearColor] getRed:&r green:&g blue:&b alpha:&alpha]){
+//            CGContextSetRGBFillColor (context,  r, g, b, alpha);
+//        }
+//    }
+//    CGContextAddArc(context, self.frame.size.width/2+1, self.frame.size.height/2+0.5, RADIS/2, 0, 2*M_PI, 0); //添加圆
+//    CGContextDrawPath(context, kCGPathFill);
 }
 
 
@@ -35,7 +35,7 @@
 {
     if(!_commondSendTimer)
     {
-    _commondSendTimer = [NSTimer timerWithTimeInterval:0.2 target:self selector:@selector(sendColorToDevice) userInfo:nil repeats:YES];
+    _commondSendTimer = [NSTimer timerWithTimeInterval:0.4 target:self selector:@selector(sendColorToDevice) userInfo:nil repeats:YES];
     [[NSRunLoop currentRunLoop]addTimer:_commondSendTimer forMode:NSRunLoopCommonModes];
     }
 }

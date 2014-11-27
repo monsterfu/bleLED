@@ -40,6 +40,10 @@
     return nil;
 }
 
+-(UIColor*)currentColor
+{
+    return [UIColor colorWithRed:_r green:_g blue:_b alpha:1.0];
+}
 
 - (NSData*)dataCommondWithDefaultValue
 {

@@ -29,6 +29,7 @@
 @property(nonatomic,strong)CBCentralManager *manager;
 
 @property(nonatomic,retain)NSMutableArray* addedDeviceArray;
+@property(nonatomic,retain)NSMutableArray* existDeviceArray;
 
 @property(nonatomic,retain)NSMutableDictionary* deviceManagerDictionary;
 

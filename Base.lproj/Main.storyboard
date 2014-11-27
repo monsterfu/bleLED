@@ -140,7 +140,7 @@
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="device 01" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WsO-0H-xSh">
                                                     <rect key="frame" x="56" y="28" width="163" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" red="0.26666666666666666" green="0.26666666666666666" blue="0.26666666666666666" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -236,6 +236,10 @@
                                     <constraint firstAttribute="height" constant="201" id="m49-0M-1l8"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b0Q-qk-3UC" customClass="centerColorView">
+                                <rect key="frame" x="133" y="100" width="54" height="54"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="亮度" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4fJ-La-OUM">
                                 <rect key="frame" x="16" y="277" width="63" height="35"/>
                                 <constraints>
@@ -303,6 +307,7 @@
                     <navigationItem key="navigationItem" title="调光" id="qdy-cZ-cTK"/>
                     <connections>
                         <outlet property="brightnessSlider" destination="tVu-ZU-9A7" id="egY-fd-p7y"/>
+                        <outlet property="centerView" destination="b0Q-qk-3UC" id="0sS-eR-t8j"/>
                         <outlet property="colorTemperatureSlider" destination="1es-rO-zFi" id="C19-43-ORp"/>
                         <outlet property="panelImageView" destination="eti-uN-8vr" id="LLt-eA-WmO"/>
                         <outlet property="panelSetView" destination="ymy-Xo-JH9" id="Y8j-8U-eMs"/>
@@ -381,7 +386,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="sceneModeCellIdentifier" rowHeight="62" id="jYQ-mM-syo" customClass="sceneModeCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="sceneModeCellIdentifier" rowHeight="62" id="jYQ-mM-syo" customClass="sceneModeCell">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jYQ-mM-syo" id="NxD-oV-dom">
@@ -432,10 +437,13 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="EsO-Db-uSq" id="VNp-Ur-aBD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3FO-IX-yna" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="853" y="334"/>
+            <point key="canvasLocation" x="917" y="339"/>
         </scene>
         <!--情景调光-->
         <scene sceneID="yzv-cS-rUJ">

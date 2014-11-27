@@ -29,6 +29,11 @@
     
     _brightnessSlider.value = _device.colorset.brightness;
     _colorTemperatureSlider.value = _device.colorset.hue;
+    
+    _tapGestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(centerViewTap)];
+    [_centerView addGestureRecognizer:_tapGestureRecognizer];
+    [_centerView setcenterColor:[_device.colorset currentColor]];
+    _open = YES;
 }
 -(void)viewDidAppear:(BOOL)animated
 {
@@ -54,6 +59,14 @@
     // Pass the selected object to the new view controller.
 }
 */
+-(void)centerViewTap
+{
+    _open = _open?(NO):(YES);
+    if (!_open) {
+        [_centerView setcenterColor:[UIColor whiteColor]];
+    }
+    [_device setOpen:_open];
+}
 
 - (IBAction)colorTemperatureSliderValueChange:(UISlider *)sender {
     NSLog(@"colorTemperatureSliderValueChange:%f",sender.value);
@@ -67,7 +80,7 @@
         float addValue = sender.value - 0.5;
         tempValue -= addValue;
     }
-    [_device setCurrentColor:keyColor brightness:tempValue hue:sender.value];
+//    [_device setCurrentColor:keyColor brightness:tempValue hue:sender.value];
 }
 - (IBAction)brightnessSliderValueChange:(UISlider *)sender {
     NSLog(@"brightnessSliderValueChange:%f",sender.value);
@@ -81,7 +94,7 @@
         float addValue = sender.value - 0.5;
         tempValue -= addValue;
     }
-    [_device setCurrentColor:keyColor brightness:sender.value hue:tempValue];
+//    [_device setCurrentColor:keyColor brightness:sender.value hue:tempValue];
 }
 
 #pragma mark --
@@ -99,6 +112,9 @@
                                    saturation:_currentHSV.s
                                    brightness:1.0
                                         alpha:1.0];
+    if (_open) {
+        [_centerView setcenterColor:keyColor];
+    }
     [_device setCurrentColor:keyColor brightness:_brightnessSlider.value hue:_colorTemperatureSlider.value];
 }
 - (IBAction)panelCenterButtonTouch:(UIButton *)sender {

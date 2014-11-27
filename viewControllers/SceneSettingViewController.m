@@ -22,6 +22,7 @@
 -(void)viewWillDisappear:(BOOL)animated
 {
     [self.navigationController setNavigationBarHidden:YES];
+    [_sceneNameTextField resignFirstResponder];
 }
 
 - (void)viewDidLoad {
@@ -74,7 +75,7 @@
                                    saturation:_currentHSV.s
                                    brightness:1.0
                                         alpha:1.0];
-    
+    [_sceneArrayDeviceObj.colorSet dataCommondWithColor:keyColor brightness:_brightnessSlider.value hue:_colorTemperatureSlider.value];
     for (_device in _sceneArrayDeviceObj.deviceArray) {
         [_device setCurrentColor:keyColor brightness:_brightnessSlider.value hue:_colorTemperatureSlider.value];
     }

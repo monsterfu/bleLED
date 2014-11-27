@@ -32,7 +32,14 @@
     
     _selectedArray = _sceneArrayDeviceObj.deviceArray;
     
-    _deviceArray = [ConnectionManager sharedInstance].addedDeviceArray;
+    _deviceArray = [NSMutableArray array];
+    
+    NSMutableArray* arr = [ConnectionManager sharedInstance].addedDeviceArray;
+    for (_device in arr) {
+        if (_device.connected) {
+            [_deviceArray addObject:_device];
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning {

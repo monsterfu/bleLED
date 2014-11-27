@@ -40,6 +40,7 @@ static ConnectionManager *sharedConnectionManager;
         _indexRSSI = 0;
         NSData* aData = [USER_DEFAULT objectForKey:KEY_DEVICELIST_INFO];
         _addedDeviceArray = [NSKeyedUnarchiver unarchiveObjectWithData:aData];
+        _existDeviceArray = [NSMutableArray array];
         if (_addedDeviceArray == nil) {
             _addedDeviceArray = [NSMutableArray array];
         }else{
@@ -149,10 +150,12 @@ static ConnectionManager *sharedConnectionManager;
         if (!_deviceObject.isConnecting) {
             [manager connectPeripheral:args_peripheral options:nil];
             _deviceObject.isConnecting = YES;
+            [_existDeviceArray addObject:_deviceObject];
+            [self.delegate didDiscoverDevice:_deviceObject];
         }
         return;
     }else{
-        _deviceObject = [oneLedDeviceObject createDeviceObjectWithName:[args_peripheral name]];
+        _deviceObject = [oneLedDeviceObject createDeviceObjectWithName:[args_peripheral name] identifier:[args_peripheral.identifier UUIDString]];
         _deviceObject.identifier = [args_peripheral.identifier UUIDString];
         _deviceObject.peripheral = args_peripheral;
         [_addedDeviceArray addObject:_deviceObject];
@@ -235,7 +238,7 @@ static ConnectionManager *sharedConnectionManager;
         
             _deviceObject = [_deviceManagerDictionary objectForKey:[args_peripheral.identifier UUIDString]];
             _deviceObject.characteristic = aChar;
-            
+            _deviceObject.connected = YES;
             [_deviceObject setDefaultValue];
         }
 //        if ([aChar.UUID isEqual:[CBUUID UUIDWithString:TRANSFER_CHARACTERISTIC2_SETCOMMAND_UUID]]) {

@@ -22,9 +22,10 @@
 
 
 + (colorSetObject*)createWithInit;
-
 +(colorSetObject*)createWithColor:(UIColor*)color brightness:(float)brightness hue:(float)hue;
+-(UIColor*)currentColor;
 
 - (NSData*)dataCommondWithDefaultValue;
 - (NSData*)dataCommondWithColor:(UIColor*)color brightness:(float)brightness hue:(float)hue;
+
 @end

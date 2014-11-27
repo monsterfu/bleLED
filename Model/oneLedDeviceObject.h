@@ -33,7 +33,7 @@
 @property(nonatomic, retain)colorSetObject* colorset;
 
 //创建
-+(oneLedDeviceObject*) createDeviceObjectWithName:(NSString*)name;
++(oneLedDeviceObject*) createDeviceObjectWithName:(NSString*)name identifier:(NSString*)identifier;
 
 //开关灯
 -(void)open:(BOOL)status;
@@ -46,6 +46,9 @@
 
 //首次连接设置默认色值等
 -(void)setDefaultValue;
+
+//设置情景模式默认色值
+-(void)setDefaultSceneValue:(colorSetObject*)colorset;
 
 //设置色彩
 -(void)setCurrentColor:(UIColor*)color brightness:(float)brightness hue:(float)hue;

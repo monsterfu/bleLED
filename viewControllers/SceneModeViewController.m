@@ -29,6 +29,10 @@
         [self.view addSubview:_emptyModeViewController.view];
     }
     
+    UIView* _eView = [UIView new];
+    [_eView setBackgroundColor:[UIColor clearColor]];
+    [_tableView setTableFooterView:_eView];
+    
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(appWillDetemin) name:NSNotificationCenter_AppWillDetemin object:nil];
 }
 
@@ -92,7 +96,13 @@
 #pragma mark -- sceneModeCellDelegate
 -(void)sceneModeCellOpen:(BOOL)open
 {
-    
+    if (open) {
+        [_sceneArrayDeviceObject setDefaultValue];
+    }else{
+        for (_device in _sceneArrayDeviceObject.deviceArray) {
+            [_device open:open];
+        }
+    }
 }
 #pragma mark --
 - (IBAction)addButtonTouched:(UIBarButtonItem *)sender {
