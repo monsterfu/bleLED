@@ -24,8 +24,8 @@
     
     sender.selected = (!sender.selected)?(YES):(NO);
     
-    if (self.delegate&&[self.delegate respondsToSelector:@selector(sceneModeCellOpen:)]) {
-        [self.delegate sceneModeCellOpen:sender.selected];
+    if (self.delegate&&[self.delegate respondsToSelector:@selector(sceneModeCellOpen:tag:)]) {
+        [self.delegate sceneModeCellOpen:sender.selected tag:self.tag];
     }
 }
 @end

@@ -48,6 +48,11 @@
     _colorTemperatureSlider.value = _sceneArrayDeviceObj.colorSet.hue;
     
     _sceneNameTextField.text = _sceneArrayDeviceObj.name;
+    
+    _tapGestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(centerViewTap)];
+    [_centerView addGestureRecognizer:_tapGestureRecognizer];
+    [_centerView setcenterColor:[_sceneArrayDeviceObj.colorSet currentColor]];
+    _open = YES;
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -65,6 +70,14 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)centerViewTap
+{
+    _open = _open?(NO):(YES);
+    if (!_open) {
+        [_centerView setcenterColor:[UIColor whiteColor]];
+    }
+    [_sceneArrayDeviceObj setDefaultValue];
+}
 #pragma mark --
 #pragma mark -- PanelViewDelegate
 -(void)panelViewHSV:(HSVType)currentHSV
@@ -79,6 +92,15 @@
     for (_device in _sceneArrayDeviceObj.deviceArray) {
         [_device setCurrentColor:keyColor brightness:_brightnessSlider.value hue:_colorTemperatureSlider.value];
     }
+}
+#pragma mark --
+#pragma mark -- UITextFieldDelegate
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    if (textField.text.length) {
+        _sceneArrayDeviceObj.name = textField.text;
+    }
+    
 }
 #pragma mark - Navigation
 

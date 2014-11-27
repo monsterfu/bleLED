@@ -464,7 +464,6 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iKF-xD-UOb">
-                                <rect key="frame" x="0.0" y="37" width="320" height="2"/>
                                 <color key="backgroundColor" red="0.83529411764705885" green="0.83529411764705885" blue="0.83529411764705885" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
@@ -515,8 +514,11 @@
                                     <constraint firstAttribute="height" constant="200" id="ZyD-jE-TDH"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6lg-UQ-vl1" customClass="centerColorView">
+                                <rect key="frame" x="133" y="144" width="54" height="54"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G4S-WD-dJV">
-                                <rect key="frame" x="106" y="0.0" width="2" height="37"/>
                                 <color key="backgroundColor" red="0.83529411764705885" green="0.83529411764705885" blue="0.83529411764705885" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                         </subviews>
@@ -536,6 +538,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="brightnessSlider" destination="HKW-s9-TLX" id="sYf-Es-Yig"/>
+                        <outlet property="centerView" destination="6lg-UQ-vl1" id="zbI-Jy-gYc"/>
                         <outlet property="colorTemperatureSlider" destination="zHf-l4-m4R" id="ZFI-6A-FlZ"/>
                         <outlet property="panelView" destination="wJW-tc-6b6" id="7k5-jH-1LG"/>
                         <outlet property="sceneNameTextField" destination="mXf-TP-Xch" id="Nim-JI-BjK"/>

@@ -10,7 +10,7 @@
 
 
 @protocol sceneModeCellDelegate <NSObject>
--(void)sceneModeCellOpen:(BOOL)open;
+-(void)sceneModeCellOpen:(BOOL)open tag:(NSUInteger)tag;
 @end
 
 @interface sceneModeCell : UITableViewCell

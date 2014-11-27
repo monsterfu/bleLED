@@ -14,6 +14,10 @@
 
 @implementation SceneModeViewController
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    [_tableView reloadData];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -21,12 +25,15 @@
     
     NSData* aData = [USER_DEFAULT objectForKey:KEY_SCENELIST_INFO];
     _sceneArry = [NSKeyedUnarchiver unarchiveObjectWithData:aData];
+    
+    UIStoryboard* storyBord = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    _emptyModeViewController = [storyBord instantiateViewControllerWithIdentifier:@"EmptyModeViewID"];
+    [self.view addSubview:_emptyModeViewController.view];
+    
     if (_sceneArry == nil) {
         _sceneArry = [NSMutableArray array];
-        
-        UIStoryboard* storyBord = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        _emptyModeViewController = [storyBord instantiateViewControllerWithIdentifier:@"EmptyModeViewID"];
-        [self.view addSubview:_emptyModeViewController.view];
+    }else{
+        [_emptyModeViewController.view setHidden:YES];
     }
     
     UIView* _eView = [UIView new];
@@ -67,10 +74,16 @@
 {
     return YES;
 }
+
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationBottom];
+        [_sceneArry removeObjectAtIndex:indexPath.row];
+        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [self appWillDetemin];
+    }
+    if (_sceneArry.count == 0) {
+        [_emptyModeViewController.view setHidden:NO];
     }
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -94,8 +107,9 @@
 }
 
 #pragma mark -- sceneModeCellDelegate
--(void)sceneModeCellOpen:(BOOL)open
+-(void)sceneModeCellOpen:(BOOL)open tag:(NSUInteger)tag
 {
+    _sceneArrayDeviceObject = [_sceneArry objectAtIndex:tag];
     if (open) {
         [_sceneArrayDeviceObject setDefaultValue];
     }else{
@@ -108,6 +122,9 @@
 - (IBAction)addButtonTouched:(UIBarButtonItem *)sender {
     _sceneArrayDeviceObject = [SceneArrayDeviceObject createWithName:@"情景模式一"];
     [_sceneArry addObject:_sceneArrayDeviceObject];
+    [_emptyModeViewController.view setHidden:YES];
+    [_tableView reloadData];
+    [self appWillDetemin];
     [self.navigationController.tabBarController performSegueWithIdentifier:@"sceneDetailIdentifier" sender:[_sceneArry lastObject]];
 }
 @end

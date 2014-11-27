@@ -10,11 +10,13 @@
 #import "PanelView.h"
 #import "SceneArrayDeviceObject.h"
 #import "SceneDeviceSelectViewController.h"
+#import "centerColorView.h"
 
 @interface SceneSettingViewController : UIViewController<UITextFieldDelegate,PanelViewDelegate>
 {
     UITapGestureRecognizer* _tapGestureRecognizer;
     SceneDeviceSelectViewController* _sceneDeviceSelectViewController;
+    BOOL _open;
 }
 @property (nonatomic) HSVType currentHSV;
 
@@ -26,6 +28,7 @@
 //色板
 @property (weak, nonatomic) IBOutlet PanelView *panelView;
 
+@property (weak, nonatomic) IBOutlet centerColorView *centerView;
 
 //色温
 @property (weak, nonatomic) IBOutlet UISlider *colorTemperatureSlider;
