@@ -8,6 +8,7 @@
 
 #import "SceneSettingViewController.h"
 
+#define COMMAND_SEND_TIMER    (0.3f)
 @interface SceneSettingViewController ()
 
 @end
@@ -42,7 +43,7 @@
     [self.view addGestureRecognizer:_tapGestureRecognizer];
     
     _panelView.delegate = self;
-    [_panelView startTouchChangeColor];
+    [_panelView startTouchChangeColor:COMMAND_SEND_TIMER];
     
     _brightnessSlider.value = _sceneArrayDeviceObj.colorSet.brightness;
     _colorTemperatureSlider.value = _sceneArrayDeviceObj.colorSet.hue;
@@ -57,7 +58,7 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
-    [_panelView startTouchChangeColor];
+    [_panelView startTouchChangeColor:COMMAND_SEND_TIMER];
 }
 
 -(void)viewDidDisappear:(BOOL)animated
@@ -74,9 +75,15 @@
 {
     _open = _open?(NO):(YES);
     if (!_open) {
-        [_centerView setcenterColor:[UIColor whiteColor]];
+        [_centerView setcenterColor:[UIColor blackColor]];
+        [_panelView stopTouchChangeColor];
+        for (_device in _sceneArrayDeviceObj.deviceArray) {
+            [_device open:_open];;
+        }
+        
+    }else{
+        [_panelView startTouchChangeColor:COMMAND_SEND_TIMER];
     }
-    [_sceneArrayDeviceObj setDefaultValue];
 }
 #pragma mark --
 #pragma mark -- PanelViewDelegate
@@ -84,10 +91,20 @@
 {
     _currentHSV = currentHSV;
     
+    CGFloat brightness = 0.0f;
+    CGFloat alpha = 0.0f;
+    if (_currentHSV.h != 0 || _currentHSV.s != 0) {
+        brightness = 0.5f;
+        alpha = 0.5f;
+    }
+    
     UIColor *keyColor = [UIColor colorWithHue:_currentHSV.h
                                    saturation:_currentHSV.s
-                                   brightness:1.0
-                                        alpha:1.0];
+                                   brightness:brightness
+                                        alpha:alpha];
+    if (_open) {
+        [_centerView setcenterColor:keyColor];
+    }
     [_sceneArrayDeviceObj.colorSet dataCommondWithColor:keyColor brightness:_brightnessSlider.value hue:_colorTemperatureSlider.value];
     for (_device in _sceneArrayDeviceObj.deviceArray) {
         [_device setCurrentColor:keyColor brightness:_brightnessSlider.value hue:_colorTemperatureSlider.value];

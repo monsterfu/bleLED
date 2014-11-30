@@ -8,6 +8,7 @@
 
 #import "DeviceSettingViewController.h"
 
+#define COMMAND_SEND_TIMER    (0.2f)
 @interface DeviceSettingViewController ()
 
 @end
@@ -25,10 +26,13 @@
     
     
     _panelSetView.delegate = self;
-    [_panelSetView startTouchChangeColor];
+    [_panelSetView startTouchChangeColor:COMMAND_SEND_TIMER];
     
     _brightnessSlider.value = _device.colorset.brightness;
     _colorTemperatureSlider.value = _device.colorset.hue;
+    
+    _brightness = _device.colorset.brightness;
+    _hue = _device.colorset.hue;
     
     _tapGestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(centerViewTap)];
     [_centerView addGestureRecognizer:_tapGestureRecognizer];
@@ -37,7 +41,7 @@
 }
 -(void)viewDidAppear:(BOOL)animated
 {
-    [_panelSetView startTouchChangeColor];
+    [_panelSetView startTouchChangeColor:COMMAND_SEND_TIMER];
 }
 
 -(void)viewDidDisappear:(BOOL)animated
@@ -63,9 +67,13 @@
 {
     _open = _open?(NO):(YES);
     if (!_open) {
-        [_centerView setcenterColor:[UIColor whiteColor]];
+        [_centerView setcenterColor:[UIColor blackColor]];
+        [_panelSetView stopTouchChangeColor];
+        [_device open:_open];
+    }else{
+        [_panelSetView startTouchChangeColor:COMMAND_SEND_TIMER];
     }
-    [_device setOpen:_open];
+    
 }
 
 - (IBAction)colorTemperatureSliderValueChange:(UISlider *)sender {
@@ -107,11 +115,17 @@
 -(void)panelViewHSV:(HSVType)currentHSV
 {
     _currentHSV = currentHSV;
+    CGFloat brightness = 0.0f;
+    CGFloat alpha = 0.0f;
+    if (_currentHSV.h != 0 || _currentHSV.s != 0) {
+        brightness = 0.5f;
+        alpha = 0.5f;
+    }
     
     UIColor *keyColor = [UIColor colorWithHue:_currentHSV.h
                                    saturation:_currentHSV.s
-                                   brightness:1.0
-                                        alpha:1.0];
+                                   brightness:brightness
+                                        alpha:alpha];
     if (_open) {
         [_centerView setcenterColor:keyColor];
     }

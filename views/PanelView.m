@@ -31,11 +31,11 @@
 }
 
 
--(void)startTouchChangeColor
+-(void)startTouchChangeColor:(CGFloat)time
 {
     if(!_commondSendTimer)
     {
-    _commondSendTimer = [NSTimer timerWithTimeInterval:0.4 target:self selector:@selector(sendColorToDevice) userInfo:nil repeats:YES];
+    _commondSendTimer = [NSTimer timerWithTimeInterval:time target:self selector:@selector(sendColorToDevice) userInfo:nil repeats:YES];
     [[NSRunLoop currentRunLoop]addTimer:_commondSendTimer forMode:NSRunLoopCommonModes];
     }
 }

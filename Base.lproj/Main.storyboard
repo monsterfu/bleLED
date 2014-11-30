@@ -317,11 +317,11 @@
             </objects>
             <point key="canvasLocation" x="1269" y="-330"/>
         </scene>
-        <!--帮助-->
+        <!--关于-->
         <scene sceneID="wvT-et-7bW">
             <objects>
                 <navigationController id="7eN-hO-edK" customClass="CommonNavigationController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="帮助" image="icon_tabbar_help_normal.png" id="lfE-wa-V4R"/>
+                    <tabBarItem key="tabBarItem" title="关于" image="icon_tabbar_help_normal.png" id="lfE-wa-V4R"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="VCz-kh-0mM">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -334,20 +334,41 @@
             </objects>
             <point key="canvasLocation" x="475.19999999999999" y="975.06666666666649"/>
         </scene>
-        <!--View Controller-->
+        <!--关于-->
         <scene sceneID="x4J-9N-5zV">
             <objects>
-                <viewController id="OQK-jL-B9n" sceneMemberID="viewController">
+                <viewController title="关于" id="OQK-jL-B9n" customClass="helpViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1bQ-Vs-9Uw"/>
                         <viewControllerLayoutGuide type="bottom" id="dHZ-Pt-XRd"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="zOn-VJ-cnr">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YhX-3O-7tP">
+                                <rect key="frame" x="16" y="290" width="288" height="18"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg_light_sel_2.png" translatesAutoresizingMaskIntoConstraints="NO" id="mBg-TR-7EU">
+                                <rect key="frame" x="60" y="44" width="200" height="200"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SmartLED" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ac1-3M-RcV">
+                                <rect key="frame" x="16" y="252" width="288" height="37"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Jcv-Lm-GB9"/>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <navigationItem key="navigationItem" title="关于" id="Jcv-Lm-GB9"/>
+                    <connections>
+                        <outlet property="versionLabel" destination="YhX-3O-7tP" id="hAS-fY-hkH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OOT-p2-9cw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -662,6 +683,7 @@
     </scenes>
     <resources>
         <image name="Rectangle12.png" width="107" height="75"/>
+        <image name="bg_light_sel_2.png" width="200" height="200"/>
         <image name="btn_OFF.png" width="70" height="28"/>
         <image name="btn_ON.png" width="70" height="28"/>
         <image name="btn_nar_add.png" width="20" height="20"/>

@@ -13,9 +13,8 @@
 
 @interface DeviceSettingViewController : UIViewController<PanelViewDelegate>
 {
-//    RSColorPickerView *colorPicker;
-//    RSBrightnessSlider *brightnessSlider;
-//    UIView *colorPatch;
+    float _brightness;
+    float _hue;
     UITapGestureRecognizer* _tapGestureRecognizer;
     BOOL _open;
 }

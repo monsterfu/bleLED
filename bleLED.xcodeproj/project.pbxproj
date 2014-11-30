@@ -7,11 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6409F7D01A2A4EE600E25A88 /* bg_light_sel_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 6409F7CF1A2A4EE600E25A88 /* bg_light_sel_2.png */; };
 		640A514B19DE5EF2008F622E /* SceneSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 640A514A19DE5EF2008F622E /* SceneSettingViewController.m */; };
-		640A514F19DE6084008F622E /* PanelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 640A514E19DE6084008F622E /* PanelView.m */; };
 		640A515219DE69DE008F622E /* deviceSelectedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 640A515119DE69DE008F622E /* deviceSelectedCell.m */; };
 		640A515519DE6A14008F622E /* deviceListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 640A515419DE6A14008F622E /* deviceListCell.m */; };
 		640A515819DE82FE008F622E /* DeviceSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 640A515719DE82FE008F622E /* DeviceSettingViewController.m */; };
+		641E88D319EE68E1004C7333 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 641E88D219EE68E1004C7333 /* CoreGraphics.framework */; };
+		641E88D519EE6904004C7333 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 641E88D419EE6904004C7333 /* QuartzCore.framework */; };
+		641E88E219EE7469004C7333 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 641E88E119EE7469004C7333 /* UIKit.framework */; };
+		642058B619EEDBF9004E990A /* panelColor.png in Resources */ = {isa = PBXBuildFile; fileRef = 642058B419EEDBF9004E990A /* panelColor.png */; };
+		642058B719EEDBF9004E990A /* panelColor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 642058B519EEDBF9004E990A /* panelColor@2x.png */; };
+		642058BA19EEE239004E990A /* centerColorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 642058B919EEE239004E990A /* centerColorView.m */; };
+		642058BD19EEE682004E990A /* PanelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 642058BC19EEE682004E990A /* PanelView.m */; };
 		6424AD0E19DD97990007523E /* btn_nar_add.png in Resources */ = {isa = PBXBuildFile; fileRef = 6424ACDB19DD97990007523E /* btn_nar_add.png */; };
 		6424AD0F19DD97990007523E /* btn_nar_add@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6424ACDC19DD97990007523E /* btn_nar_add@2x.png */; };
 		6424AD1019DD97990007523E /* btn_nar_add@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6424ACDD19DD97990007523E /* btn_nar_add@3x.png */; };
@@ -75,9 +82,32 @@
 		6424AD6C19DDDF350007523E /* EmptyOneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6424AD6B19DDDF350007523E /* EmptyOneViewController.m */; };
 		6424AD7219DDE0050007523E /* EmptyModeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6424AD7119DDE0050007523E /* EmptyModeViewController.m */; };
 		6424AD7519DDE10B0007523E /* SceneModeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6424AD7419DDE10B0007523E /* SceneModeViewController.m */; };
+		642F28EF1A188364009E6B4E /* checkerboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 642F28D71A188364009E6B4E /* checkerboard.png */; };
+		642F28F01A188364009E6B4E /* checkerboard@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 642F28D81A188364009E6B4E /* checkerboard@2x.png */; };
+		642F28F11A188364009E6B4E /* colorPickerKnob.png in Resources */ = {isa = PBXBuildFile; fileRef = 642F28D91A188364009E6B4E /* colorPickerKnob.png */; };
+		642F28F21A188364009E6B4E /* colorPickerKnob@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 642F28DA1A188364009E6B4E /* colorPickerKnob@2x.png */; };
+		642F28F31A188364009E6B4E /* HSV.c in Sources */ = {isa = PBXBuildFile; fileRef = 642F28DB1A188364009E6B4E /* HSV.c */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		642F28F41A188364009E6B4E /* KZColorCompareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 642F28DE1A188364009E6B4E /* KZColorCompareView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		642F28F51A188364009E6B4E /* KZColorPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 642F28E01A188364009E6B4E /* KZColorPicker.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		642F28F61A188364009E6B4E /* KZColorPickerAlphaSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 642F28E21A188364009E6B4E /* KZColorPickerAlphaSlider.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		642F28F71A188364009E6B4E /* KZColorPickerBrightnessSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 642F28E41A188364009E6B4E /* KZColorPickerBrightnessSlider.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		642F28F81A188364009E6B4E /* KZColorPickerHSWheel.m in Sources */ = {isa = PBXBuildFile; fileRef = 642F28E61A188364009E6B4E /* KZColorPickerHSWheel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		642F28F91A188364009E6B4E /* KZColorPickerSwatchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 642F28E81A188364009E6B4E /* KZColorPickerSwatchView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		642F28FA1A188364009E6B4E /* KZUnitSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 642F28EA1A188364009E6B4E /* KZUnitSlider.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		642F28FB1A188364009E6B4E /* pickerColorWheel.png in Resources */ = {isa = PBXBuildFile; fileRef = 642F28EB1A188364009E6B4E /* pickerColorWheel.png */; };
+		642F28FC1A188364009E6B4E /* pickerColorWheel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 642F28EC1A188364009E6B4E /* pickerColorWheel@2x.png */; };
+		642F28FD1A188364009E6B4E /* UIColor-Expanded.m in Sources */ = {isa = PBXBuildFile; fileRef = 642F28EE1A188364009E6B4E /* UIColor-Expanded.m */; };
+		642F29041A18EEEC009E6B4E /* oneLedDeviceObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 642F29031A18EEEC009E6B4E /* oneLedDeviceObject.m */; };
+		642F29071A18EFC4009E6B4E /* colorSetObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 642F29061A18EFC4009E6B4E /* colorSetObject.m */; };
+		643427C91A28F96F004AADFD /* helpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 643427C81A28F96F004AADFD /* helpViewController.m */; };
+		643908021A1A006500D1858E /* KZColorCenterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 643908011A1A006500D1858E /* KZColorCenterView.m */; };
 		643D2A0819DF28C400B6B3FD /* Rectangle12.png in Resources */ = {isa = PBXBuildFile; fileRef = 643D2A0519DF28C400B6B3FD /* Rectangle12.png */; };
 		643D2A0919DF28C400B6B3FD /* Rectangle12@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 643D2A0619DF28C400B6B3FD /* Rectangle12@2x.png */; };
 		643D2A0A19DF28C400B6B3FD /* Rectangle12@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 643D2A0719DF28C400B6B3FD /* Rectangle12@3x.png */; };
+		648E31CF1A209DD1008BB7E5 /* SceneArrayDeviceObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 648E31CE1A209DD1008BB7E5 /* SceneArrayDeviceObject.m */; };
+		6495BFE91A20D981004AAF48 /* sceneModeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6495BFE81A20D981004AAF48 /* sceneModeCell.m */; };
+		6495BFEC1A20E696004AAF48 /* list_select.png in Resources */ = {isa = PBXBuildFile; fileRef = 6495BFEA1A20E696004AAF48 /* list_select.png */; };
+		6495BFED1A20E696004AAF48 /* list_select@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6495BFEB1A20E696004AAF48 /* list_select@2x.png */; };
 		64C2BE8F19DD947C0017B247 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 64C2BE8E19DD947C0017B247 /* main.m */; };
 		64C2BE9219DD947C0017B247 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 64C2BE9119DD947C0017B247 /* AppDelegate.m */; };
 		64C2BE9B19DD947C0017B247 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64C2BE9919DD947C0017B247 /* Main.storyboard */; };
@@ -97,16 +127,24 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6409F7CF1A2A4EE600E25A88 /* bg_light_sel_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_light_sel_2.png; sourceTree = "<group>"; };
 		640A514919DE5EF2008F622E /* SceneSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SceneSettingViewController.h; path = viewControllers/SceneSettingViewController.h; sourceTree = "<group>"; };
 		640A514A19DE5EF2008F622E /* SceneSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SceneSettingViewController.m; path = viewControllers/SceneSettingViewController.m; sourceTree = "<group>"; };
-		640A514D19DE6084008F622E /* PanelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PanelView.h; path = views/PanelView.h; sourceTree = "<group>"; };
-		640A514E19DE6084008F622E /* PanelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PanelView.m; path = views/PanelView.m; sourceTree = "<group>"; };
 		640A515019DE69DE008F622E /* deviceSelectedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = deviceSelectedCell.h; path = views/deviceSelectedCell.h; sourceTree = "<group>"; };
 		640A515119DE69DE008F622E /* deviceSelectedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = deviceSelectedCell.m; path = views/deviceSelectedCell.m; sourceTree = "<group>"; };
 		640A515319DE6A14008F622E /* deviceListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = deviceListCell.h; path = views/deviceListCell.h; sourceTree = "<group>"; };
 		640A515419DE6A14008F622E /* deviceListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = deviceListCell.m; path = views/deviceListCell.m; sourceTree = "<group>"; };
 		640A515619DE82FE008F622E /* DeviceSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DeviceSettingViewController.h; path = viewControllers/DeviceSettingViewController.h; sourceTree = "<group>"; };
 		640A515719DE82FE008F622E /* DeviceSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DeviceSettingViewController.m; path = viewControllers/DeviceSettingViewController.m; sourceTree = "<group>"; };
+		641E88D219EE68E1004C7333 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		641E88D419EE6904004C7333 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		641E88E119EE7469004C7333 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		642058B419EEDBF9004E990A /* panelColor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = panelColor.png; sourceTree = "<group>"; };
+		642058B519EEDBF9004E990A /* panelColor@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "panelColor@2x.png"; sourceTree = "<group>"; };
+		642058B819EEE239004E990A /* centerColorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = centerColorView.h; path = views/centerColorView.h; sourceTree = "<group>"; };
+		642058B919EEE239004E990A /* centerColorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = centerColorView.m; path = views/centerColorView.m; sourceTree = "<group>"; };
+		642058BB19EEE682004E990A /* PanelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PanelView.h; path = views/PanelView.h; sourceTree = "<group>"; };
+		642058BC19EEE682004E990A /* PanelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PanelView.m; path = views/PanelView.m; sourceTree = "<group>"; };
 		6424ACDB19DD97990007523E /* btn_nar_add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_nar_add.png; sourceTree = "<group>"; };
 		6424ACDC19DD97990007523E /* btn_nar_add@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_nar_add@2x.png"; sourceTree = "<group>"; };
 		6424ACDD19DD97990007523E /* btn_nar_add@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_nar_add@3x.png"; sourceTree = "<group>"; };
@@ -181,9 +219,47 @@
 		6424AD7119DDE0050007523E /* EmptyModeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EmptyModeViewController.m; path = viewControllers/EmptyModeViewController.m; sourceTree = "<group>"; };
 		6424AD7319DDE10B0007523E /* SceneModeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SceneModeViewController.h; path = viewControllers/SceneModeViewController.h; sourceTree = "<group>"; };
 		6424AD7419DDE10B0007523E /* SceneModeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SceneModeViewController.m; path = viewControllers/SceneModeViewController.m; sourceTree = "<group>"; };
+		642F28D71A188364009E6B4E /* checkerboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkerboard.png; sourceTree = "<group>"; };
+		642F28D81A188364009E6B4E /* checkerboard@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkerboard@2x.png"; sourceTree = "<group>"; };
+		642F28D91A188364009E6B4E /* colorPickerKnob.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = colorPickerKnob.png; sourceTree = "<group>"; };
+		642F28DA1A188364009E6B4E /* colorPickerKnob@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "colorPickerKnob@2x.png"; sourceTree = "<group>"; };
+		642F28DB1A188364009E6B4E /* HSV.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = HSV.c; sourceTree = "<group>"; };
+		642F28DC1A188364009E6B4E /* HSV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSV.h; sourceTree = "<group>"; };
+		642F28DD1A188364009E6B4E /* KZColorCompareView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KZColorCompareView.h; sourceTree = "<group>"; };
+		642F28DE1A188364009E6B4E /* KZColorCompareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KZColorCompareView.m; sourceTree = "<group>"; };
+		642F28DF1A188364009E6B4E /* KZColorPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KZColorPicker.h; sourceTree = "<group>"; };
+		642F28E01A188364009E6B4E /* KZColorPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KZColorPicker.m; sourceTree = "<group>"; };
+		642F28E11A188364009E6B4E /* KZColorPickerAlphaSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KZColorPickerAlphaSlider.h; sourceTree = "<group>"; };
+		642F28E21A188364009E6B4E /* KZColorPickerAlphaSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KZColorPickerAlphaSlider.m; sourceTree = "<group>"; };
+		642F28E31A188364009E6B4E /* KZColorPickerBrightnessSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KZColorPickerBrightnessSlider.h; sourceTree = "<group>"; };
+		642F28E41A188364009E6B4E /* KZColorPickerBrightnessSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KZColorPickerBrightnessSlider.m; sourceTree = "<group>"; };
+		642F28E51A188364009E6B4E /* KZColorPickerHSWheel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KZColorPickerHSWheel.h; sourceTree = "<group>"; };
+		642F28E61A188364009E6B4E /* KZColorPickerHSWheel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KZColorPickerHSWheel.m; sourceTree = "<group>"; };
+		642F28E71A188364009E6B4E /* KZColorPickerSwatchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KZColorPickerSwatchView.h; sourceTree = "<group>"; };
+		642F28E81A188364009E6B4E /* KZColorPickerSwatchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KZColorPickerSwatchView.m; sourceTree = "<group>"; };
+		642F28E91A188364009E6B4E /* KZUnitSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KZUnitSlider.h; sourceTree = "<group>"; };
+		642F28EA1A188364009E6B4E /* KZUnitSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KZUnitSlider.m; sourceTree = "<group>"; };
+		642F28EB1A188364009E6B4E /* pickerColorWheel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pickerColorWheel.png; sourceTree = "<group>"; };
+		642F28EC1A188364009E6B4E /* pickerColorWheel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pickerColorWheel@2x.png"; sourceTree = "<group>"; };
+		642F28ED1A188364009E6B4E /* UIColor-Expanded.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor-Expanded.h"; sourceTree = "<group>"; };
+		642F28EE1A188364009E6B4E /* UIColor-Expanded.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor-Expanded.m"; sourceTree = "<group>"; };
+		642F29021A18EEEC009E6B4E /* oneLedDeviceObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = oneLedDeviceObject.h; path = Model/oneLedDeviceObject.h; sourceTree = "<group>"; };
+		642F29031A18EEEC009E6B4E /* oneLedDeviceObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = oneLedDeviceObject.m; path = Model/oneLedDeviceObject.m; sourceTree = "<group>"; };
+		642F29051A18EFC4009E6B4E /* colorSetObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = colorSetObject.h; path = Model/colorSetObject.h; sourceTree = "<group>"; };
+		642F29061A18EFC4009E6B4E /* colorSetObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = colorSetObject.m; path = Model/colorSetObject.m; sourceTree = "<group>"; };
+		643427C71A28F96F004AADFD /* helpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = helpViewController.h; path = viewControllers/helpViewController.h; sourceTree = "<group>"; };
+		643427C81A28F96F004AADFD /* helpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = helpViewController.m; path = viewControllers/helpViewController.m; sourceTree = "<group>"; };
+		643908001A1A006500D1858E /* KZColorCenterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KZColorCenterView.h; sourceTree = "<group>"; };
+		643908011A1A006500D1858E /* KZColorCenterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KZColorCenterView.m; sourceTree = "<group>"; };
 		643D2A0519DF28C400B6B3FD /* Rectangle12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Rectangle12.png; sourceTree = "<group>"; };
 		643D2A0619DF28C400B6B3FD /* Rectangle12@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Rectangle12@2x.png"; sourceTree = "<group>"; };
 		643D2A0719DF28C400B6B3FD /* Rectangle12@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Rectangle12@3x.png"; sourceTree = "<group>"; };
+		648E31CD1A209DD1008BB7E5 /* SceneArrayDeviceObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SceneArrayDeviceObject.h; path = Model/SceneArrayDeviceObject.h; sourceTree = "<group>"; };
+		648E31CE1A209DD1008BB7E5 /* SceneArrayDeviceObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SceneArrayDeviceObject.m; path = Model/SceneArrayDeviceObject.m; sourceTree = "<group>"; };
+		6495BFE71A20D981004AAF48 /* sceneModeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sceneModeCell.h; path = views/sceneModeCell.h; sourceTree = "<group>"; };
+		6495BFE81A20D981004AAF48 /* sceneModeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = sceneModeCell.m; path = views/sceneModeCell.m; sourceTree = "<group>"; };
+		6495BFEA1A20E696004AAF48 /* list_select.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = list_select.png; sourceTree = "<group>"; };
+		6495BFEB1A20E696004AAF48 /* list_select@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "list_select@2x.png"; sourceTree = "<group>"; };
 		64C2BE8919DD947C0017B247 /* bleLED.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bleLED.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		64C2BE8D19DD947C0017B247 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		64C2BE8E19DD947C0017B247 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -202,6 +278,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				641E88E219EE7469004C7333 /* UIKit.framework in Frameworks */,
+				641E88D519EE6904004C7333 /* QuartzCore.framework in Frameworks */,
+				641E88D319EE68E1004C7333 /* CoreGraphics.framework in Frameworks */,
 				6424AD6319DDDAFD0007523E /* CoreBluetooth.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -219,12 +298,16 @@
 		640A514C19DE605C008F622E /* views */ = {
 			isa = PBXGroup;
 			children = (
-				640A514D19DE6084008F622E /* PanelView.h */,
-				640A514E19DE6084008F622E /* PanelView.m */,
+				642058BB19EEE682004E990A /* PanelView.h */,
+				642058BC19EEE682004E990A /* PanelView.m */,
+				6495BFE71A20D981004AAF48 /* sceneModeCell.h */,
+				6495BFE81A20D981004AAF48 /* sceneModeCell.m */,
 				640A515319DE6A14008F622E /* deviceListCell.h */,
 				640A515419DE6A14008F622E /* deviceListCell.m */,
 				640A515019DE69DE008F622E /* deviceSelectedCell.h */,
 				640A515119DE69DE008F622E /* deviceSelectedCell.m */,
+				642058B819EEE239004E990A /* centerColorView.h */,
+				642058B919EEE239004E990A /* centerColorView.m */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -232,6 +315,11 @@
 		6424ACDA19DD97990007523E /* image */ = {
 			isa = PBXGroup;
 			children = (
+				6409F7CF1A2A4EE600E25A88 /* bg_light_sel_2.png */,
+				642058B419EEDBF9004E990A /* panelColor.png */,
+				6495BFEA1A20E696004AAF48 /* list_select.png */,
+				6495BFEB1A20E696004AAF48 /* list_select@2x.png */,
+				642058B519EEDBF9004E990A /* panelColor@2x.png */,
 				643D2A0519DF28C400B6B3FD /* Rectangle12.png */,
 				643D2A0619DF28C400B6B3FD /* Rectangle12@2x.png */,
 				643D2A0719DF28C400B6B3FD /* Rectangle12@3x.png */,
@@ -312,6 +400,8 @@
 				640A514A19DE5EF2008F622E /* SceneSettingViewController.m */,
 				6424AD5B19DDD5DC0007523E /* SceneDeviceSelectViewController.h */,
 				6424AD5C19DDD5DC0007523E /* SceneDeviceSelectViewController.m */,
+				643427C71A28F96F004AADFD /* helpViewController.h */,
+				643427C81A28F96F004AADFD /* helpViewController.m */,
 			);
 			name = viewControllers;
 			sourceTree = "<group>";
@@ -336,6 +426,7 @@
 		6424AD5E19DDD6F60007523E /* thirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				642F28D61A188364009E6B4E /* ColorPicker */,
 				6424AD5F19DDD7460007523E /* MBProgressHUD.h */,
 				6424AD6019DDD7460007523E /* MBProgressHUD.m */,
 			);
@@ -349,6 +440,53 @@
 				6424AD6619DDDB750007523E /* ConnectionManager.m */,
 			);
 			path = Singletons;
+			sourceTree = "<group>";
+		};
+		642F28D61A188364009E6B4E /* ColorPicker */ = {
+			isa = PBXGroup;
+			children = (
+				642F28D71A188364009E6B4E /* checkerboard.png */,
+				642F28D81A188364009E6B4E /* checkerboard@2x.png */,
+				642F28D91A188364009E6B4E /* colorPickerKnob.png */,
+				642F28DA1A188364009E6B4E /* colorPickerKnob@2x.png */,
+				642F28DB1A188364009E6B4E /* HSV.c */,
+				642F28DC1A188364009E6B4E /* HSV.h */,
+				642F28DD1A188364009E6B4E /* KZColorCompareView.h */,
+				642F28DE1A188364009E6B4E /* KZColorCompareView.m */,
+				642F28DF1A188364009E6B4E /* KZColorPicker.h */,
+				642F28E01A188364009E6B4E /* KZColorPicker.m */,
+				643908001A1A006500D1858E /* KZColorCenterView.h */,
+				643908011A1A006500D1858E /* KZColorCenterView.m */,
+				642F28E11A188364009E6B4E /* KZColorPickerAlphaSlider.h */,
+				642F28E21A188364009E6B4E /* KZColorPickerAlphaSlider.m */,
+				642F28E31A188364009E6B4E /* KZColorPickerBrightnessSlider.h */,
+				642F28E41A188364009E6B4E /* KZColorPickerBrightnessSlider.m */,
+				642F28E51A188364009E6B4E /* KZColorPickerHSWheel.h */,
+				642F28E61A188364009E6B4E /* KZColorPickerHSWheel.m */,
+				642F28E71A188364009E6B4E /* KZColorPickerSwatchView.h */,
+				642F28E81A188364009E6B4E /* KZColorPickerSwatchView.m */,
+				642F28E91A188364009E6B4E /* KZUnitSlider.h */,
+				642F28EA1A188364009E6B4E /* KZUnitSlider.m */,
+				642F28EB1A188364009E6B4E /* pickerColorWheel.png */,
+				642F28EC1A188364009E6B4E /* pickerColorWheel@2x.png */,
+				642F28ED1A188364009E6B4E /* UIColor-Expanded.h */,
+				642F28EE1A188364009E6B4E /* UIColor-Expanded.m */,
+			);
+			name = ColorPicker;
+			path = thirdParty/ColorPicker;
+			sourceTree = "<group>";
+		};
+		642F29011A18EE94009E6B4E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				642F29021A18EEEC009E6B4E /* oneLedDeviceObject.h */,
+				642F29031A18EEEC009E6B4E /* oneLedDeviceObject.m */,
+				642F29051A18EFC4009E6B4E /* colorSetObject.h */,
+				642F29061A18EFC4009E6B4E /* colorSetObject.m */,
+				648E31CD1A209DD1008BB7E5 /* SceneArrayDeviceObject.h */,
+				648E31CE1A209DD1008BB7E5 /* SceneArrayDeviceObject.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		64C2BE8019DD947C0017B247 = {
@@ -372,6 +510,7 @@
 		64C2BE8B19DD947C0017B247 /* bleLED */ = {
 			isa = PBXGroup;
 			children = (
+				642F29011A18EE94009E6B4E /* Model */,
 				640A514C19DE605C008F622E /* views */,
 				6424AD6419DDDB750007523E /* Singletons */,
 				6424AD5E19DDD6F60007523E /* thirdParty */,
@@ -392,6 +531,8 @@
 		64C2BE8C19DD947C0017B247 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				641E88D419EE6904004C7333 /* QuartzCore.framework */,
+				641E88D219EE68E1004C7333 /* CoreGraphics.framework */,
 				6424AD6219DDDAFD0007523E /* CoreBluetooth.framework */,
 				64C2BE8D19DD947C0017B247 /* Info.plist */,
 				64C2BE8E19DD947C0017B247 /* main.m */,
@@ -411,6 +552,7 @@
 		64C2BEA919DD947D0017B247 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				641E88E119EE7469004C7333 /* UIKit.framework */,
 				64C2BEAA19DD947D0017B247 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -465,6 +607,7 @@
 				TargetAttributes = {
 					64C2BE8819DD947C0017B247 = {
 						CreatedOnToolsVersion = 6.0.1;
+						DevelopmentTeam = H6NR6KPK2Z;
 					};
 					64C2BEA419DD947D0017B247 = {
 						CreatedOnToolsVersion = 6.0.1;
@@ -499,9 +642,12 @@
 				6424AD1C19DD97990007523E /* btn_rainbow_pressed@3x.png in Resources */,
 				6424AD3919DD97990007523E /* icon_tabbar_mode_normal@2x.png in Resources */,
 				6424AD1019DD97990007523E /* btn_nar_add@3x.png in Resources */,
+				642F28EF1A188364009E6B4E /* checkerboard.png in Resources */,
 				6424AD2B19DD97990007523E /* icon_radio_normal@3x.png in Resources */,
+				6409F7D01A2A4EE600E25A88 /* bg_light_sel_2.png in Resources */,
 				643D2A0A19DF28C400B6B3FD /* Rectangle12@3x.png in Resources */,
 				6424AD2D19DD97990007523E /* icon_radio_selected@2x.png in Resources */,
+				642058B619EEDBF9004E990A /* panelColor.png in Resources */,
 				6424AD2719DD97990007523E /* icon_list_mode@2x.png in Resources */,
 				6424AD1719DD97990007523E /* btn_rainbow_normal.png in Resources */,
 				6424AD1219DD97990007523E /* btn_OFF@2x.png in Resources */,
@@ -511,13 +657,16 @@
 				6424AD3819DD97990007523E /* icon_tabbar_mode_normal.png in Resources */,
 				6424AD1B19DD97990007523E /* btn_rainbow_pressed@2x.png in Resources */,
 				6424AD3319DD97990007523E /* icon_tabbar_device_normal@2x.png in Resources */,
+				6495BFEC1A20E696004AAF48 /* list_select.png in Resources */,
 				6424AD2F19DD97990007523E /* icon_rainbow.png in Resources */,
 				6424AD1A19DD97990007523E /* btn_rainbow_pressed.png in Resources */,
 				6424AD1119DD97990007523E /* btn_OFF.png in Resources */,
 				6424AD3D19DD97990007523E /* line_progress@3x.png in Resources */,
+				6495BFED1A20E696004AAF48 /* list_select@2x.png in Resources */,
 				6424AD1619DD97990007523E /* btn_ON@3x.png in Resources */,
 				6424AD3E19DD97990007523E /* line_progress_bg.png in Resources */,
 				6424AD1819DD97990007523E /* btn_rainbow_normal@2x.png in Resources */,
+				642F28FB1A188364009E6B4E /* pickerColorWheel.png in Resources */,
 				6424AD1519DD97990007523E /* btn_ON@2x.png in Resources */,
 				643D2A0919DF28C400B6B3FD /* Rectangle12@2x.png in Resources */,
 				6424AD1419DD97990007523E /* btn_ON.png in Resources */,
@@ -529,9 +678,11 @@
 				6424AD2219DD97990007523E /* icon_empty_mode@3x.png in Resources */,
 				6424AD3519DD97990007523E /* icon_tabbar_help_normal.png in Resources */,
 				6424AD2119DD97990007523E /* icon_empty_mode@2x.png in Resources */,
+				642F28F11A188364009E6B4E /* colorPickerKnob.png in Resources */,
 				64C2BEA019DD947D0017B247 /* LaunchScreen.xib in Resources */,
 				6424AD3419DD97990007523E /* icon_tabbar_device_normal@3x.png in Resources */,
 				6424AD2A19DD97990007523E /* icon_radio_normal@2x.png in Resources */,
+				642058B719EEDBF9004E990A /* panelColor@2x.png in Resources */,
 				643D2A0819DF28C400B6B3FD /* Rectangle12.png in Resources */,
 				6424AD2919DD97990007523E /* icon_radio_normal.png in Resources */,
 				6424AD3719DD97990007523E /* icon_tabbar_help_normal@3x.png in Resources */,
@@ -545,10 +696,13 @@
 				6424AD2C19DD97990007523E /* icon_radio_selected.png in Resources */,
 				6424AD1D19DD97990007523E /* icon_empty_device.png in Resources */,
 				6424AD3019DD97990007523E /* icon_rainbow@2x.png in Resources */,
+				642F28FC1A188364009E6B4E /* pickerColorWheel@2x.png in Resources */,
 				6424AD0F19DD97990007523E /* btn_nar_add@2x.png in Resources */,
 				6424AD3219DD97990007523E /* icon_tabbar_device_normal.png in Resources */,
 				6424AD3C19DD97990007523E /* line_progress@2x.png in Resources */,
+				642F28F01A188364009E6B4E /* checkerboard@2x.png in Resources */,
 				6424AD1F19DD97990007523E /* icon_empty_device@3x.png in Resources */,
+				642F28F21A188364009E6B4E /* colorPickerKnob@2x.png in Resources */,
 				64C2BE9D19DD947D0017B247 /* Images.xcassets in Resources */,
 				6424AD3A19DD97990007523E /* icon_tabbar_mode_normal@3x.png in Resources */,
 				6424AD2519DD97990007523E /* icon_list_light@3x.png in Resources */,
@@ -572,22 +726,38 @@
 			buildActionMask = 2147483647;
 			files = (
 				6424AD4619DD9B940007523E /* CommonNavigationController.m in Sources */,
+				642058BD19EEE682004E990A /* PanelView.m in Sources */,
+				642058BA19EEE239004E990A /* centerColorView.m in Sources */,
+				643908021A1A006500D1858E /* KZColorCenterView.m in Sources */,
+				642F28FA1A188364009E6B4E /* KZUnitSlider.m in Sources */,
+				648E31CF1A209DD1008BB7E5 /* SceneArrayDeviceObject.m in Sources */,
+				642F28F91A188364009E6B4E /* KZColorPickerSwatchView.m in Sources */,
+				642F29071A18EFC4009E6B4E /* colorSetObject.m in Sources */,
 				640A514B19DE5EF2008F622E /* SceneSettingViewController.m in Sources */,
 				6424AD7519DDE10B0007523E /* SceneModeViewController.m in Sources */,
-				640A514F19DE6084008F622E /* PanelView.m in Sources */,
 				6424AD6C19DDDF350007523E /* EmptyOneViewController.m in Sources */,
 				640A515219DE69DE008F622E /* deviceSelectedCell.m in Sources */,
 				640A515819DE82FE008F622E /* DeviceSettingViewController.m in Sources */,
 				6424AD7219DDE0050007523E /* EmptyModeViewController.m in Sources */,
+				642F28F41A188364009E6B4E /* KZColorCompareView.m in Sources */,
 				640A515519DE6A14008F622E /* deviceListCell.m in Sources */,
+				642F28F81A188364009E6B4E /* KZColorPickerHSWheel.m in Sources */,
 				6424AD6719DDDB750007523E /* ConnectionManager.m in Sources */,
 				6424AD5419DDD55C0007523E /* MainViewController.m in Sources */,
 				6424AD4C19DD9C400007523E /* UIColor+getColor.m in Sources */,
+				642F28FD1A188364009E6B4E /* UIColor-Expanded.m in Sources */,
+				642F28F71A188364009E6B4E /* KZColorPickerBrightnessSlider.m in Sources */,
+				642F28F61A188364009E6B4E /* KZColorPickerAlphaSlider.m in Sources */,
 				6424AD5D19DDD5DC0007523E /* SceneDeviceSelectViewController.m in Sources */,
+				642F29041A18EEEC009E6B4E /* oneLedDeviceObject.m in Sources */,
 				64C2BE9219DD947C0017B247 /* AppDelegate.m in Sources */,
 				6424AD6119DDD7460007523E /* MBProgressHUD.m in Sources */,
 				64C2BE8F19DD947C0017B247 /* main.m in Sources */,
+				643427C91A28F96F004AADFD /* helpViewController.m in Sources */,
+				642F28F51A188364009E6B4E /* KZColorPicker.m in Sources */,
+				6495BFE91A20D981004AAF48 /* sceneModeCell.m in Sources */,
 				6424AD4719DD9B940007523E /* CommonTabbarViewController.m in Sources */,
+				642F28F31A188364009E6B4E /* HSV.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -710,10 +880,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: xin fu (H6NR6KPK2Z)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: xin fu (H6NR6KPK2Z)";
 				INFOPLIST_FILE = bleLED/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "4528b182-513f-48a6-9b7c-211b14e4ece7";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -723,10 +896,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: xin fu (H6NR6KPK2Z)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: xin fu (H6NR6KPK2Z)";
 				INFOPLIST_FILE = bleLED/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "4528b182-513f-48a6-9b7c-211b14e4ece7";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

@@ -24,7 +24,7 @@
 @property (nonatomic) HSVType currentHSV;
 
 //开启定时器采集
--(void)startTouchChangeColor;
+-(void)startTouchChangeColor:(CGFloat)time;
 //关闭定时器采集
 -(void)stopTouchChangeColor;
 @end

@@ -71,7 +71,18 @@
         self.g = g;
         self.b = b;
         self.brightness = brightness;
-        self.hue = hue;
+        self.hue = 1.0f - hue;
+    }
+    if (self.brightness + self.hue > 1) {
+        CGFloat upFloat = self.brightness + self.hue - 1;
+        if (upFloat/2.0f > self.brightness) {
+            self.hue -= upFloat;
+        }else if (upFloat/2.0f > self.hue) {
+            self.brightness -= upFloat;
+        }else{
+            self.brightness -= upFloat/2.0f;
+            self.hue -= upFloat/2.0f;
+        }
     }
     
     unsigned char command1[20] = {0x55,0x08,0x00,0x01,0x01,  self.brightness*MAX_VALUE_I,self.hue*MAX_VALUE_I, self.r*MAX_VALUE_I,self.g*MAX_VALUE_I,self.b*MAX_VALUE_I};
