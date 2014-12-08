@@ -16,7 +16,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "64C2BE8819DD947C0017B247"
                BuildableName = "bleLED.app"
-               BlueprintName = "bleLED"
+               BlueprintName = "SmartLED"
                ReferencedContainer = "container:bleLED.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -58,7 +58,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "64C2BE8819DD947C0017B247"
             BuildableName = "bleLED.app"
-            BlueprintName = "bleLED"
+            BlueprintName = "SmartLED"
             ReferencedContainer = "container:bleLED.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -77,7 +77,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "64C2BE8819DD947C0017B247"
             BuildableName = "bleLED.app"
-            BlueprintName = "bleLED"
+            BlueprintName = "SmartLED"
             ReferencedContainer = "container:bleLED.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -95,7 +95,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "64C2BE8819DD947C0017B247"
             BuildableName = "bleLED.app"
-            BlueprintName = "bleLED"
+            BlueprintName = "SmartLED"
             ReferencedContainer = "container:bleLED.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

@@ -14,6 +14,7 @@
 {
     deviceSelectedCell* _cell;
     UIBarButtonItem* _rightButtonItem;
+    UIBarButtonItem* _leftButtonItem;
     oneLedDeviceObject* _device;
 }
 @property(nonatomic, retain)SceneArrayDeviceObject* sceneArrayDeviceObj;

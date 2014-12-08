@@ -11,12 +11,22 @@
 #import "oneLedDeviceObject.h"
 #import "centercolorView.h"
 
+typedef enum : NSUInteger {
+    current_Justify_No,
+    current_Justify_Color,
+    current_Justify_Brightness,
+    current_Justify_Hue
+} current_Justify_Enum;
+
+
 @interface DeviceSettingViewController : UIViewController<PanelViewDelegate>
 {
     float _brightness;
     float _hue;
     UITapGestureRecognizer* _tapGestureRecognizer;
     BOOL _open;
+    
+    current_Justify_Enum _nowJustify;
 }
 @property (nonatomic) HSVType currentHSV;
 @property (weak, nonatomic) IBOutlet PanelView *panelSetView;

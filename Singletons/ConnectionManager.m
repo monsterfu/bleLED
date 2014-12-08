@@ -38,8 +38,8 @@ static ConnectionManager *sharedConnectionManager;
         
         _deviceManagerDictionary = [NSMutableDictionary dictionary];
         _indexRSSI = 0;
-        NSData* aData = [USER_DEFAULT objectForKey:KEY_DEVICELIST_INFO];
-        _addedDeviceArray = [NSKeyedUnarchiver unarchiveObjectWithData:aData];
+//        NSData* aData = [USER_DEFAULT objectForKey:KEY_DEVICELIST_INFO];
+//        _addedDeviceArray = [NSKeyedUnarchiver unarchiveObjectWithData:aData];
         _existDeviceArray = [NSMutableArray array];
         if (_addedDeviceArray == nil) {
             _addedDeviceArray = [NSMutableArray array];
@@ -122,7 +122,12 @@ static ConnectionManager *sharedConnectionManager;
             break;
     }
 }
-
+-(void)resetDeviceConnectingStatus:(id)sender
+{
+    NSLog(@"sssssss:%@",_checkConnectTimer.userInfo);
+    oneLedDeviceObject* dev = _checkConnectTimer.userInfo;
+    dev.isConnecting = NO;
+}
 -(void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)args_peripheral advertisementData:(NSDictionary *)advertisementData RSSI:(NSNumber *)RSSI{
     
     //屏蔽不可连接设备
@@ -150,8 +155,8 @@ static ConnectionManager *sharedConnectionManager;
         if (!_deviceObject.isConnecting) {
             [manager connectPeripheral:args_peripheral options:nil];
             _deviceObject.isConnecting = YES;
-            [_existDeviceArray addObject:_deviceObject];
-            [self.delegate didDiscoverDevice:_deviceObject];
+            _checkConnectTimer = [NSTimer timerWithTimeInterval:5 target:self selector:@selector(resetDeviceConnectingStatus:) userInfo:_deviceObject repeats:NO];
+            [[NSRunLoop currentRunLoop]addTimer:_checkConnectTimer forMode:NSRunLoopCommonModes];
         }
         return;
     }else{
@@ -160,7 +165,7 @@ static ConnectionManager *sharedConnectionManager;
         _deviceObject.peripheral = args_peripheral;
         [_addedDeviceArray addObject:_deviceObject];
         [_deviceManagerDictionary setObject:_deviceObject forKey:_deviceObject.identifier];
-        [self.delegate didDiscoverDevice:_deviceObject];
+        
         
         [USER_DEFAULT removeObjectForKey:KEY_DEVICELIST_INFO];
         NSData* aDate = [NSKeyedArchiver archivedDataWithRootObject:_addedDeviceArray];
@@ -180,6 +185,8 @@ static ConnectionManager *sharedConnectionManager;
 {
     NSLog(@"disconnect!!!!  error: %@",error);
     
+    [_existDeviceArray removeObject:[_deviceManagerDictionary objectForKey:[persipheral.identifier UUIDString]]];
+    [self.delegate didDiscoverDevice:_deviceObject];
     [USER_DEFAULT removeObjectForKey:KEY_DEVICELIST_INFO];
     NSData* aDate = [NSKeyedArchiver archivedDataWithRootObject:[ConnectionManager sharedInstance].addedDeviceArray];
     [USER_DEFAULT setObject:aDate forKey:KEY_DEVICELIST_INFO];
@@ -198,6 +205,9 @@ static ConnectionManager *sharedConnectionManager;
     [args_peripheral setDelegate:self];
     [args_peripheral readRSSI];
     [args_peripheral discoverServices:nil];
+    [_existDeviceArray removeObject:[_deviceManagerDictionary objectForKey:[args_peripheral.identifier UUIDString]]];
+    [_existDeviceArray addObject:[_deviceManagerDictionary objectForKey:[args_peripheral.identifier UUIDString]]];
+    [self.delegate didDiscoverDevice:_deviceObject];
 }
 
 -(void)peripheral:(CBPeripheral *)args_peripheral didDiscoverServices:(NSError *)error{
@@ -229,7 +239,7 @@ static ConnectionManager *sharedConnectionManager;
     
     for (CBCharacteristic *aChar in service.characteristics)
     {
-        NSLog(@"Characteristic test FOUND: %@ %@ %u",aChar.value,aChar.UUID,aChar.properties);
+//        NSLog(@"Characteristic test FOUND: %@ %@ %u",aChar.value,aChar.UUID,aChar.properties);
 //        if ([aChar.UUID isEqual:[CBUUID UUIDWithString:@"CCC1"]]) {
         if ([aChar.UUID isEqual:[CBUUID UUIDWithString:TRANSFER_CHARACTERISTIC_TEST_UUID]]) {
         
@@ -276,19 +286,19 @@ static ConnectionManager *sharedConnectionManager;
 - (void) peripheral:(CBPeripheral *)peripheral didWriteValueForCharacteristic:
 (CBCharacteristic *)characteristic error:(NSError *)error
 {
-    NSLog(@"Did write characteristic value : %@ with ID %@", characteristic.value, characteristic.UUID);
-    NSLog(@"With error: %@", [error localizedDescription]);
+//    NSLog(@"Did write characteristic value : %@ with ID %@", characteristic.value, characteristic.UUID);
+//    NSLog(@"With error: %@", [error localizedDescription]);
     
     //code...
 }
 - (void)peripheral:(CBPeripheral *)peripheral didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error
 {
     if (error) {
-        NSLog(@"Error discovering characteristics: %@", [error localizedDescription]);
+//        NSLog(@"Error discovering characteristics: %@", [error localizedDescription]);
         return;
     }
-    NSLog(@"Characteristic value : %@ with ID %@",  [[NSString alloc] initWithData:characteristic.value encoding:NSASCIIStringEncoding], characteristic.UUID);
-    NSLog(@"Characteristic value : %@ with ID %@",  characteristic.value, characteristic.UUID);
+//    NSLog(@"Characteristic value : %@ with ID %@",  [[NSString alloc] initWithData:characteristic.value encoding:NSASCIIStringEncoding], characteristic.UUID);
+//    NSLog(@"Characteristic value : %@ with ID %@",  characteristic.value, characteristic.UUID);
 //    [_selectedDevFob addReadingWithRawData:characteristic.value person:_selectedPerson];
 //    [self.delegate didUpdateTemperature:[_selectedDevFob.temperature floatValue]];
 }
@@ -296,9 +306,9 @@ static ConnectionManager *sharedConnectionManager;
 -(void)peripheral:(CBPeripheral *)args_peripheral didUpdateNotificationStateForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error{
     
     if (error) {
-        NSLog(@"didUpdateNotificationStateForCharacteristic error:%@",error);
+//        NSLog(@"didUpdateNotificationStateForCharacteristic error:%@",error);
     }
-    NSLog(@"characteristic.UUID:%@  value:%@, characteristic.properties:%d,characteristic:%@",characteristic.UUID,characteristic.value,characteristic.properties,characteristic);
+//    NSLog(@"characteristic.UUID:%@  value:%@, characteristic.properties:%d,characteristic:%@",characteristic.UUID,characteristic.value,characteristic.properties,characteristic);
 //    if ([characteristic.UUID isEqual:[CBUUID UUIDWithString:TRANSFER_CHARACTERISTIC_COMMONDCHANNEL_UUID]]) {
 //        [_characteristicDictionary setObject:characteristic forKey:[args_peripheral.identifier UUIDString]];
 //         [args_peripheral readValueForCharacteristic:characteristic];

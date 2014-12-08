@@ -15,7 +15,7 @@
     _hud = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
     [self.navigationController.view addSubview:_hud];
     _hud.delegate = self;
-    _hud.labelText = @"Ble设备搜索中..";
+    _hud.labelText = NSLocalizedString(@"searching device..",@"");
     _hud.square = YES;
     [_hud showWhileExecuting:@selector(myTask) onTarget:self withObject:nil animated:YES];
 }
@@ -29,6 +29,8 @@
     UIView* _eView = [UIView new];
     [_eView setBackgroundColor:[UIColor clearColor]];
     [_tableView setTableFooterView:_eView];
+    [[ConnectionManager sharedInstance]startScanForDevice];
+    [[ConnectionManager sharedInstance] setDelegate:self];
 }
 
 
@@ -103,7 +105,11 @@
     _device = [_deviceArray objectAtIndex:tag];
     [_device open:open];
 }
-
+-(void)deviceListSetDeviceName:(NSString*)name tag:(NSUInteger)tag
+{
+    _device = [_deviceArray objectAtIndex:tag];
+    [_device setDeviceName:name];
+}
 #pragma mark -
 #pragma mark ConnectionManagerDelegate
 - (void) didDiscoverDevice:(oneLedDeviceObject*)device

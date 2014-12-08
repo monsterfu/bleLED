@@ -11,12 +11,21 @@
 #import "SceneArrayDeviceObject.h"
 #import "SceneDeviceSelectViewController.h"
 #import "centerColorView.h"
+typedef enum : NSUInteger {
+    current_Justify_No,
+    current_Justify_Color,
+    current_Justify_Brightness,
+    current_Justify_Hue
+} current_Justify_Enum;
+
 
 @interface SceneSettingViewController : UIViewController<UITextFieldDelegate,PanelViewDelegate>
 {
     UITapGestureRecognizer* _tapGestureRecognizer;
     SceneDeviceSelectViewController* _sceneDeviceSelectViewController;
     BOOL _open;
+    
+    current_Justify_Enum _nowJustify;
 }
 @property (nonatomic) HSVType currentHSV;
 

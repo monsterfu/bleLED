@@ -49,6 +49,9 @@
 {
     UITouch *touch = [touches anyObject];
     [self mapPointToColor:[touch locationInView:self]];
+    if (self.delegate&&[self.delegate respondsToSelector:@selector(touchHappened)]) {
+        [self.delegate touchHappened];
+    }
 }
 -(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {

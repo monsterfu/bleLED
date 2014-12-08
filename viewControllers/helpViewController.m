@@ -19,7 +19,7 @@
     // Do any additional setup after loading the view.
     
     
-    _versionLabel.text = [NSString stringWithFormat:@"版本号: v%@", [[NSBundle mainBundle] objectForInfoDictionaryKey:(NSString*)kCFBundleVersionKey]];
+    _versionLabel.text = [NSString stringWithFormat:@"%@ v%@", NSLocalizedString(@"vision",@""),[[NSBundle mainBundle] objectForInfoDictionaryKey:(NSString*)kCFBundleVersionKey]];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -18,9 +18,10 @@
 //- (void) didUpdateTemperature:(CGFloat)temp;
 @end
 
+//   1 改名字  2 组网记忆 重启  3 英文版本
 @interface ConnectionManager : NSObject<CBCentralManagerDelegate,CBPeripheralDelegate>
 {
-    NSTimer* checkRssiTimer;
+    NSTimer* _checkConnectTimer;
     CBUUID* _batteryUUID;
     NSUInteger _indexRSSI;
     oneLedDeviceObject* _deviceObject;

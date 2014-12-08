@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreGraphics/CoreGraphics.h>
 #import <UIKit/UIKit.h>
+#import "HSV.h"
 
 @interface colorSetObject : NSObject
 
@@ -20,7 +21,7 @@
 @property(nonatomic,assign)CGFloat hue;
 @property(nonatomic,assign)CGFloat brightness;
 
-
+-(HSVType)HSVType;
 + (colorSetObject*)createWithInit;
 +(colorSetObject*)createWithColor:(UIColor*)color brightness:(float)brightness hue:(float)hue;
 -(UIColor*)currentColor;

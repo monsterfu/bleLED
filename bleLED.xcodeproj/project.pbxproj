@@ -19,6 +19,7 @@
 		642058B719EEDBF9004E990A /* panelColor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 642058B519EEDBF9004E990A /* panelColor@2x.png */; };
 		642058BA19EEE239004E990A /* centerColorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 642058B919EEE239004E990A /* centerColorView.m */; };
 		642058BD19EEE682004E990A /* PanelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 642058BC19EEE682004E990A /* PanelView.m */; };
+		6424305A1A30D25900606E71 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6424305C1A30D25900606E71 /* Localizable.strings */; };
 		6424AD0E19DD97990007523E /* btn_nar_add.png in Resources */ = {isa = PBXBuildFile; fileRef = 6424ACDB19DD97990007523E /* btn_nar_add.png */; };
 		6424AD0F19DD97990007523E /* btn_nar_add@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6424ACDC19DD97990007523E /* btn_nar_add@2x.png */; };
 		6424AD1019DD97990007523E /* btn_nar_add@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6424ACDD19DD97990007523E /* btn_nar_add@3x.png */; };
@@ -145,6 +146,9 @@
 		642058B919EEE239004E990A /* centerColorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = centerColorView.m; path = views/centerColorView.m; sourceTree = "<group>"; };
 		642058BB19EEE682004E990A /* PanelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PanelView.h; path = views/PanelView.h; sourceTree = "<group>"; };
 		642058BC19EEE682004E990A /* PanelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PanelView.m; path = views/PanelView.m; sourceTree = "<group>"; };
+		642430571A30D00200606E71 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6424305B1A30D25900606E71 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		6424305D1A30D25D00606E71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6424ACDB19DD97990007523E /* btn_nar_add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_nar_add.png; sourceTree = "<group>"; };
 		6424ACDC19DD97990007523E /* btn_nar_add@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_nar_add@2x.png"; sourceTree = "<group>"; };
 		6424ACDD19DD97990007523E /* btn_nar_add@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_nar_add@3x.png"; sourceTree = "<group>"; };
@@ -536,6 +540,7 @@
 				6424AD6219DDDAFD0007523E /* CoreBluetooth.framework */,
 				64C2BE8D19DD947C0017B247 /* Info.plist */,
 				64C2BE8E19DD947C0017B247 /* main.m */,
+				6424305C1A30D25900606E71 /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -561,9 +566,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		64C2BE8819DD947C0017B247 /* bleLED */ = {
+		64C2BE8819DD947C0017B247 /* SmartLED */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 64C2BEAF19DD947D0017B247 /* Build configuration list for PBXNativeTarget "bleLED" */;
+			buildConfigurationList = 64C2BEAF19DD947D0017B247 /* Build configuration list for PBXNativeTarget "SmartLED" */;
 			buildPhases = (
 				64C2BE8519DD947C0017B247 /* Sources */,
 				64C2BE8619DD947C0017B247 /* Frameworks */,
@@ -573,7 +578,7 @@
 			);
 			dependencies = (
 			);
-			name = bleLED;
+			name = SmartLED;
 			productName = bleLED;
 			productReference = 64C2BE8919DD947C0017B247 /* bleLED.app */;
 			productType = "com.apple.product-type.application";
@@ -628,7 +633,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				64C2BE8819DD947C0017B247 /* bleLED */,
+				64C2BE8819DD947C0017B247 /* SmartLED */,
 				64C2BEA419DD947D0017B247 /* bleLEDTests */,
 			);
 		};
@@ -703,6 +708,7 @@
 				642F28F01A188364009E6B4E /* checkerboard@2x.png in Resources */,
 				6424AD1F19DD97990007523E /* icon_empty_device@3x.png in Resources */,
 				642F28F21A188364009E6B4E /* colorPickerKnob@2x.png in Resources */,
+				6424305A1A30D25900606E71 /* Localizable.strings in Resources */,
 				64C2BE9D19DD947D0017B247 /* Images.xcassets in Resources */,
 				6424AD3A19DD97990007523E /* icon_tabbar_mode_normal@3x.png in Resources */,
 				6424AD2519DD97990007523E /* icon_list_light@3x.png in Resources */,
@@ -774,16 +780,26 @@
 /* Begin PBXTargetDependency section */
 		64C2BEA719DD947D0017B247 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 64C2BE8819DD947C0017B247 /* bleLED */;
+			target = 64C2BE8819DD947C0017B247 /* SmartLED */;
 			targetProxy = 64C2BEA619DD947D0017B247 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		6424305C1A30D25900606E71 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6424305B1A30D25900606E71 /* en */,
+				6424305D1A30D25D00606E71 /* Base */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		64C2BE9919DD947C0017B247 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				64C2BE9A19DD947C0017B247 /* Base */,
+				642430571A30D00200606E71 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -885,8 +901,8 @@
 				INFOPLIST_FILE = bleLED/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "4528b182-513f-48a6-9b7c-211b14e4ece7";
+				PRODUCT_NAME = bleLED;
+				PROVISIONING_PROFILE = "8e0120fe-99cf-4961-97ca-386130736ce9";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -901,8 +917,8 @@
 				INFOPLIST_FILE = bleLED/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "4528b182-513f-48a6-9b7c-211b14e4ece7";
+				PRODUCT_NAME = bleLED;
+				PROVISIONING_PROFILE = "8e0120fe-99cf-4961-97ca-386130736ce9";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -921,7 +937,7 @@
 				);
 				INFOPLIST_FILE = bleLEDTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = bleLEDTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/bleLED.app/bleLED";
 			};
 			name = Debug;
@@ -936,7 +952,7 @@
 				);
 				INFOPLIST_FILE = bleLEDTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = bleLEDTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/bleLED.app/bleLED";
 			};
 			name = Release;
@@ -953,7 +969,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		64C2BEAF19DD947D0017B247 /* Build configuration list for PBXNativeTarget "bleLED" */ = {
+		64C2BEAF19DD947D0017B247 /* Build configuration list for PBXNativeTarget "SmartLED" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				64C2BEB019DD947D0017B247 /* Debug */,

@@ -16,6 +16,13 @@
 }
 -(void)viewWillDisappear:(BOOL)animated
 {
+    _selectedArray = [NSMutableArray array];
+    for (_device in _deviceArray) {
+        if (_device.isSelected) {
+            [_selectedArray addObject:_device];
+        }
+    }
+    _sceneArrayDeviceObj.deviceArray = _selectedArray;
     [self.navigationController setNavigationBarHidden:YES];
 }
 
@@ -30,14 +37,14 @@
     
     [self.navigationItem setRightBarButtonItem:_rightButtonItem];
     
-    _selectedArray = _sceneArrayDeviceObj.deviceArray;
-    
-    _deviceArray = [NSMutableArray array];
+    _deviceArray = [NSMutableArray arrayWithArray:_sceneArrayDeviceObj.deviceArray];
     
     NSMutableArray* arr = [ConnectionManager sharedInstance].addedDeviceArray;
     for (_device in arr) {
         if (_device.connected) {
-            [_deviceArray addObject:_device];
+            if (!_device.isSelected) {
+                [_deviceArray addObject:_device];
+            }
         }
     }
 }
@@ -50,7 +57,7 @@
 
 - (void)rightBarButtonTouch
 {
-    _sceneArrayDeviceObj.deviceArray = _selectedArray;
+    
     [self.navigationController popViewControllerAnimated:YES];
 }
 /*
@@ -72,7 +79,7 @@
     _cell = [tableView dequeueReusableCellWithIdentifier:@"deviceSelectedIdentifier" forIndexPath:indexPath];
     _device = [_deviceArray objectAtIndex:indexPath.row];
     _cell.nameLabel.text = _device.name;
-    
+    [_cell.selectedButton setSelected:_device.isSelected];
     _cell.tag = indexPath.row;
     _cell.delegate = self;
     return _cell;
@@ -80,22 +87,24 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     _cell = (deviceSelectedCell*)[tableView cellForRowAtIndexPath:indexPath];
+    _device = [_deviceArray objectAtIndex:indexPath.row];
     if (_cell.selectedButton.selected) {
         [_cell.selectedButton setSelected:NO];
-        [_selectedArray removeObject:[_deviceArray objectAtIndex:indexPath.row]];
+        _device.isSelected = NO;
     }else{
         [_cell.selectedButton setSelected:YES];
-        [_selectedArray addObject:[_deviceArray objectAtIndex:indexPath.row]];
+        _device.isSelected = YES;
     }
 }
 #pragma mark -
 #pragma mark - deviceSelectedDelegate
 -(void)deviceSelectedCellSelected:(BOOL)seleted tag:(NSUInteger)tag
 {
+    _device = [_deviceArray objectAtIndex:tag];
     if (seleted) {
-        [_selectedArray addObject:[_deviceArray objectAtIndex:tag]];
+        _device.isSelected = YES;
     }else{
-        [_selectedArray removeObject:[_deviceArray objectAtIndex:tag]];
+        _device.isSelected = NO;
     }
 }
 @end

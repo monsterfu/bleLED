@@ -12,6 +12,7 @@
 
 @protocol PanelViewDelegate <NSObject>
 -(void)panelViewHSV:(HSVType)currentHSV;
+-(void)touchHappened;
 @end
 
 @interface PanelView : UIView

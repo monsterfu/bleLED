@@ -23,12 +23,12 @@
 
 @property(nonatomic, retain)CBPeripheral *peripheral;
 @property(nonatomic, retain)CBCharacteristic *characteristic;
-@property(nonatomic, retain)CBCharacteristic *characteristic2;
 @property(nonatomic, retain)NSString *name;
 @property(nonatomic, retain)NSString *identifier;
 @property(nonatomic, assign)BOOL open;
 @property(nonatomic, assign)BOOL connected;
 @property(nonatomic, assign)BOOL isConnecting;
+@property(nonatomic, assign)BOOL isSelected;    //组网模式时用于标记是否已经被选
 
 @property(nonatomic, retain)colorSetObject* colorset;
 
@@ -53,4 +53,5 @@
 //设置色彩
 -(void)setCurrentColor:(UIColor*)color brightness:(float)brightness hue:(float)hue;
 
+-(void)setDeviceName:(NSString*)name;
 @end

@@ -16,7 +16,24 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
+    for (_sceneArrayDeviceObject in _sceneArry) {
+        for (_device in _sceneArrayDeviceObject.deviceArray) {
+            _device.isSelected = YES;
+            for (oneLedDeviceObject* _addDevice in [ConnectionManager sharedInstance].existDeviceArray) {
+                if ([_addDevice.identifier isEqualToString:_device.identifier]) {
+                    _addDevice.isSelected = YES;
+                    _device.characteristic = _addDevice.characteristic;
+                    _device.peripheral = _addDevice.peripheral;
+                }
+            }
+        }
+    }
     [_tableView reloadData];
+    
+    [USER_DEFAULT removeObjectForKey:KEY_SCENELIST_INFO];
+    NSData* aDate = [NSKeyedArchiver archivedDataWithRootObject:_sceneArry];
+    [USER_DEFAULT setObject:aDate forKey:KEY_SCENELIST_INFO];
+    [USER_DEFAULT synchronize];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -25,6 +42,7 @@
     
     NSData* aData = [USER_DEFAULT objectForKey:KEY_SCENELIST_INFO];
     _sceneArry = [NSKeyedUnarchiver unarchiveObjectWithData:aData];
+    
     
     UIStoryboard* storyBord = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     _emptyModeViewController = [storyBord instantiateViewControllerWithIdentifier:@"EmptyModeViewID"];
@@ -80,6 +98,22 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [_sceneArry removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        
+        for (oneLedDeviceObject* _addDevice in [ConnectionManager sharedInstance].addedDeviceArray) {
+            _addDevice.isSelected = NO;
+        }
+        for (_sceneArrayDeviceObject in _sceneArry) {
+            for (_device in _sceneArrayDeviceObject.deviceArray) {
+                _device.isSelected = YES;
+                for (oneLedDeviceObject* _addDevice in [ConnectionManager sharedInstance].existDeviceArray) {
+                    if ([_addDevice.identifier isEqualToString:_device.identifier]) {
+                        _addDevice.isSelected = YES;
+                        _device.characteristic = _addDevice.characteristic;
+                        _device.peripheral = _addDevice.peripheral;
+                    }
+                }
+            }
+        }
         [self appWillDetemin];
     }
     if (_sceneArry.count == 0) {

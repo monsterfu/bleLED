@@ -54,6 +54,8 @@
     [_centerView addGestureRecognizer:_tapGestureRecognizer];
     [_centerView setcenterColor:[_sceneArrayDeviceObj.colorSet currentColor]];
     _open = YES;
+    
+    _panelView.currentHSV = [_sceneArrayDeviceObj.colorSet HSVType];
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -87,6 +89,9 @@
 }
 #pragma mark --
 #pragma mark -- PanelViewDelegate
+-(void)touchHappened{
+    _nowJustify = current_Justify_Color;
+}
 -(void)panelViewHSV:(HSVType)currentHSV
 {
     _currentHSV = currentHSV;
@@ -105,9 +110,33 @@
     if (_open) {
         [_centerView setcenterColor:keyColor];
     }
-    [_sceneArrayDeviceObj.colorSet dataCommondWithColor:keyColor brightness:_brightnessSlider.value hue:_colorTemperatureSlider.value];
+    [_sceneArrayDeviceObj.colorSet dataCommondWithColor:keyColor brightness:0 hue:1];
     for (_device in _sceneArrayDeviceObj.deviceArray) {
-        [_device setCurrentColor:keyColor brightness:_brightnessSlider.value hue:_colorTemperatureSlider.value];
+        
+        if (_nowJustify == current_Justify_Color) {
+            [_device setCurrentColor:keyColor brightness:0 hue:1.0f];
+        }else if (_nowJustify == current_Justify_Brightness) {
+            if (_brightnessSlider.value <= 0.1) {
+                [_device setCurrentColor:keyColor brightness:0.05 hue:1.0f];
+            }else{
+                [_device setCurrentColor:keyColor brightness:_brightnessSlider.value hue:1.0f];
+            }
+        }else if (_nowJustify == current_Justify_Hue) {
+            CGFloat temp = 0.0f;
+            if (_colorTemperatureSlider.value > 0.7f) {
+                temp = _colorTemperatureSlider.value;
+                if (_colorTemperatureSlider.value > 0.9f) {
+                    temp = 0.9f;
+                }
+                [_device setCurrentColor:[UIColor clearColor] brightness:0.005+(_colorTemperatureSlider.value - 0.7)  hue:temp];
+            }
+            else{
+                temp = _colorTemperatureSlider.value;
+                [_device setCurrentColor:[UIColor clearColor] brightness:0.005 hue:temp];
+            }
+        }else{
+            [_device setCurrentColor:keyColor brightness:_brightnessSlider.value hue:1.0f];
+        }
     }
 }
 #pragma mark --
@@ -137,7 +166,9 @@
 }
 
 - (IBAction)brightnessSliderValueChanged:(UISlider *)sender {
+    _nowJustify = current_Justify_Brightness;
 }
 - (IBAction)colorTemperatureSliderValueChanged:(UISlider *)sender {
+    _nowJustify = current_Justify_Hue;
 }
 @end

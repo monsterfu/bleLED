@@ -8,7 +8,7 @@
 
 #import "DeviceSettingViewController.h"
 
-#define COMMAND_SEND_TIMER    (0.2f)
+#define COMMAND_SEND_TIMER    (0.12f)
 @interface DeviceSettingViewController ()
 
 @end
@@ -26,6 +26,7 @@
     
     
     _panelSetView.delegate = self;
+    
     [_panelSetView startTouchChangeColor:COMMAND_SEND_TIMER];
     
     _brightnessSlider.value = _device.colorset.brightness;
@@ -38,6 +39,7 @@
     [_centerView addGestureRecognizer:_tapGestureRecognizer];
     [_centerView setcenterColor:[_device.colorset currentColor]];
     _open = YES;
+    _nowJustify = current_Justify_No;
 }
 -(void)viewDidAppear:(BOOL)animated
 {
@@ -88,6 +90,8 @@
         float addValue = sender.value - 0.5;
         tempValue -= addValue;
     }
+    
+    _nowJustify = current_Justify_Hue;
 //    [_device setCurrentColor:keyColor brightness:tempValue hue:sender.value];
 }
 - (IBAction)brightnessSliderValueChange:(UISlider *)sender {
@@ -102,6 +106,7 @@
         float addValue = sender.value - 0.5;
         tempValue -= addValue;
     }
+    _nowJustify = current_Justify_Brightness;
 //    [_device setCurrentColor:keyColor brightness:sender.value hue:tempValue];
 }
 
@@ -112,6 +117,9 @@
 }
 #pragma mark --
 #pragma mark -- PanelViewDelegate
+-(void)touchHappened{
+    _nowJustify = current_Justify_Color;
+}
 -(void)panelViewHSV:(HSVType)currentHSV
 {
     _currentHSV = currentHSV;
@@ -129,7 +137,32 @@
     if (_open) {
         [_centerView setcenterColor:keyColor];
     }
-    [_device setCurrentColor:keyColor brightness:_brightnessSlider.value hue:_colorTemperatureSlider.value];
+    if (_nowJustify == current_Justify_Color) {
+        [_device setCurrentColor:keyColor brightness:0 hue:1.0f];
+    }else if (_nowJustify == current_Justify_Brightness) {
+        if (_brightnessSlider.value <= 0.1) {
+            [_device setCurrentColor:keyColor brightness:0.005 hue:1.0f];
+        }else{
+            [_device setCurrentColor:keyColor brightness:_brightnessSlider.value hue:1.0f];
+        }
+    }else if (_nowJustify == current_Justify_Hue) {
+        CGFloat temp = 0.0f;
+        if (_colorTemperatureSlider.value > 0.7f) {
+            temp = _colorTemperatureSlider.value;
+            if (_colorTemperatureSlider.value > 0.9f) {
+                temp = 0.9f;
+            }
+            [_device setCurrentColor:[UIColor clearColor] brightness:0.005+(_colorTemperatureSlider.value - 0.7)  hue:temp];
+        }
+        else{
+            temp = _colorTemperatureSlider.value;
+            [_device setCurrentColor:[UIColor clearColor] brightness:0.005 hue:temp];
+        }
+        
+    }else{
+        [_device setCurrentColor:keyColor brightness:_brightnessSlider.value hue:_colorTemperatureSlider.value];
+    }
+    
 }
 - (IBAction)panelCenterButtonTouch:(UIButton *)sender {
 }
