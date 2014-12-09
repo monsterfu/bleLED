@@ -108,6 +108,7 @@
 -(void)deviceListSetDeviceName:(NSString*)name tag:(NSUInteger)tag
 {
     _device = [_deviceArray objectAtIndex:tag];
+    _device.name = name;
     [_device setDeviceName:name];
 }
 #pragma mark -

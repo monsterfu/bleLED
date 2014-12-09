@@ -154,7 +154,8 @@
 }
 #pragma mark --
 - (IBAction)addButtonTouched:(UIBarButtonItem *)sender {
-    _sceneArrayDeviceObject = [SceneArrayDeviceObject createWithName:@"情景模式一"];
+    
+    _sceneArrayDeviceObject = [SceneArrayDeviceObject createWithName:NSLocalizedString(@"scene mode",@"")];
     [_sceneArry addObject:_sceneArrayDeviceObject];
     [_emptyModeViewController.view setHidden:YES];
     [_tableView reloadData];

@@ -117,9 +117,9 @@
             [_device setCurrentColor:keyColor brightness:0 hue:1.0f];
         }else if (_nowJustify == current_Justify_Brightness) {
             if (_brightnessSlider.value <= 0.1) {
-                [_device setCurrentColor:keyColor brightness:0.05 hue:1.0f];
+                [_device setCurrentColor:[UIColor clearColor] brightness:0.05 hue:1.0f];
             }else{
-                [_device setCurrentColor:keyColor brightness:_brightnessSlider.value hue:1.0f];
+                [_device setCurrentColor:[UIColor clearColor] brightness:_brightnessSlider.value hue:1.0f];
             }
         }else if (_nowJustify == current_Justify_Hue) {
             CGFloat temp = 0.0f;

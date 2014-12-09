@@ -110,8 +110,6 @@
     if (_characteristic) {
         [_peripheral writeValue:lookdata forCharacteristic:_characteristic type:CBCharacteristicWriteWithResponse];
     }
-    sleep(2);
-    [[ConnectionManager sharedInstance].manager cancelPeripheralConnection:_peripheral];
 }
 #pragma mark --
 
